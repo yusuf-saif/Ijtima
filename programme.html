@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TIM 3rd Ijtimah 1447 AH — Event Programme</title>
+  <meta name="description" content="Al-Harakatul-Islamiyyah, Abuja Daira of TIM — TIM 3rd Ijtimah 1447 AH. Saturday 16 May 2026, FOMWAN Jumu'at Mosque, Utako, FCT Abuja." />
+  <style>
+    /* ═══════════════════════════════════════════════════════════════
+       DESIGN TOKENS — sampled from flyer
+       Primary green  #193825  (dark forest, theme banner)
+       Gold           #c9a227  ("SUCCESS:" accent + diamond motifs)
+       Page cream     #f4f2ed
+    ═══════════════════════════════════════════════════════════════ */
+    :root {
+      /* greens */
+      --g950: #0a1810;
+      --g900: #0e2016;
+      --g800: #193825;
+      --g700: #1e4d33;
+      --g600: #276644;
+      --g500: #3a8058;
+      --g100: #eaf4ee;
+      /* golds */
+      --au700: #8a6b0c;
+      --au600: #a07d0f;
+      --au500: #c9a227;
+      --au400: #d9b63a;
+      --au300: #e8cc6a;
+      --au100: #fdf8e5;
+      /* neutrals */
+      --cream: #f4f2ed;
+      --white: #ffffff;
+      --ink:   #18231a;
+      --ink70: #3f504a;
+      --ink40: #7b918b;
+      /* motion */
+      --ease:        cubic-bezier(.4,0,.2,1);
+      --ease-spring: cubic-bezier(.34,1.56,.64,1);
+      --dur:         .32s;
+      /* radii */
+      --r-sm: 6px;  --r-md: 12px;  --r-lg: 20px;  --r-xl: 28px;
+      /* shadows */
+      --sh-sm: 0 2px 10px rgba(0,0,0,.06);
+      --sh-md: 0 8px 30px rgba(0,0,0,.10);
+      --sh-lg: 0 24px 64px rgba(0,0,0,.18);
+    }
+
+    /* ── reset ── */
+    *,*::before,*::after { box-sizing:border-box; margin:0; padding:0 }
+    html { scroll-behavior:smooth }
+    body { font-family:Georgia,'Times New Roman',serif; background:var(--cream); color:var(--ink); line-height:1.65; overflow-x:hidden }
+    img  { display:block; max-width:100% }
+    button { font-family:inherit; cursor:pointer }
+
+    /* ── reduced-motion (mandatory – epic-design skill) ── */
+    @media (prefers-reduced-motion:reduce) {
+      *,*::before,*::after {
+        animation-duration:.01ms !important;
+        animation-iteration-count:1 !important;
+        transition-duration:.01ms !important;
+        scroll-behavior:auto !important;
+      }
+    }
+
+    /* ── fade-up (IntersectionObserver driven) ── */
+    .fu { opacity:0; transform:translateY(26px); transition:opacity .6s var(--ease), transform .6s var(--ease) }
+    .fu.vis { opacity:1; transform:translateY(0) }
+
+    /* ═══════════════════════════════════════════════════════════════
+       HERO  — 5 depth layers (epic-design skill)
+       0: gradient bg  1: glow blobs  2: tile  3: gold frame  4: content  5: bismillah
+    ═══════════════════════════════════════════════════════════════ */
+    .hero {
+      position:relative; min-height:100svh;
+      display:flex; align-items:center; justify-content:center;
+      overflow:hidden; padding:84px 22px 100px;
+    }
+
+    /* depth-0 */
+    .h-bg { position:absolute; inset:0; z-index:0;
+      background:linear-gradient(160deg, var(--g950) 0%, var(--g800) 46%, var(--g700) 100%) }
+
+    /* depth-1 — only transform+opacity animated (GPU safe) */
+    .h-glow { position:absolute; inset:0; z-index:1; pointer-events:none; overflow:hidden }
+    .h-ga,.h-gb { position:absolute; border-radius:50%; will-change:transform }
+    .h-ga { width:65vw; height:65vw; top:-22%; left:-18%;
+      background:radial-gradient(ellipse, rgba(201,162,39,.15) 0%, transparent 68%);
+      animation:gdrift 11s ease-in-out infinite alternate }
+    .h-gb { width:52vw; height:52vw; bottom:-18%; right:-14%;
+      background:radial-gradient(ellipse, rgba(42,100,72,.28) 0%, transparent 68%);
+      animation:gdrift 16s ease-in-out infinite alternate-reverse }
+    @keyframes gdrift { from { transform:translate(0,0) scale(1) } to { transform:translate(22px,-16px) scale(1.07) } }
+
+    /* depth-2 — Islamic diagonal tile */
+    .h-tile { position:absolute; inset:0; z-index:2; pointer-events:none; opacity:.036;
+      background-image:
+        repeating-linear-gradient(45deg,  var(--au500) 0,var(--au500) 1px,transparent 0,transparent 44px),
+        repeating-linear-gradient(-45deg, var(--au500) 0,var(--au500) 1px,transparent 0,transparent 44px);
+      background-size:62px 62px }
+
+    /* depth-3 — gold border + corner ornaments */
+    .h-frame { position:absolute; inset:18px; z-index:3; pointer-events:none;
+      border:1px solid rgba(201,162,39,.22); border-radius:var(--r-xl) }
+    .h-frame::before,.h-frame::after { content:''; position:absolute;
+      width:22px; height:22px; border-color:var(--au500); border-style:solid; opacity:.46 }
+    .h-frame::before { top:-1px; left:-1px; border-width:2px 0 0 2px; border-radius:var(--r-sm) 0 0 0 }
+    .h-frame::after  { bottom:-1px; right:-1px; border-width:0 2px 2px 0; border-radius:0 0 var(--r-sm) 0 }
+
+    /* depth-5 */
+    .h-bsm { position:absolute; top:28px; left:50%; transform:translateX(-50%);
+      z-index:5; pointer-events:none; font-size:.82rem; color:rgba(255,255,255,.28);
+      letter-spacing:.22em; font-family:system-ui,sans-serif; white-space:nowrap }
+
+    /* depth-4 — content */
+    .h-con { position:relative; z-index:4; max-width:800px; width:100%; text-align:center }
+
+    .h-org { display:inline-flex; align-items:center; gap:8px;
+      background:rgba(255,255,255,.07); border:1px solid rgba(201,162,39,.26);
+      border-radius:100px; padding:7px 22px; margin-bottom:28px;
+      font-family:system-ui,sans-serif; font-size:.7rem; font-weight:700;
+      letter-spacing:.15em; text-transform:uppercase; color:var(--au300) }
+    .h-dot { width:4px; height:4px; border-radius:50%; background:var(--au500); flex-shrink:0 }
+
+    .h-ev { font-family:system-ui,sans-serif; font-size:.78rem; letter-spacing:.18em;
+      text-transform:uppercase; color:rgba(255,255,255,.46); margin-bottom:14px }
+    .h-rule { width:70px; height:2px;
+      background:linear-gradient(90deg,transparent,var(--au500),transparent); margin:20px auto }
+
+    .h-ti { font-style:italic; color:var(--au300); font-size:.96rem; margin-bottom:10px; opacity:.88 }
+    .h-th { font-family:system-ui,sans-serif; font-size:clamp(1.65rem,4.6vw,3.1rem);
+      font-weight:900; line-height:1.04; color:var(--white); letter-spacing:-.015em; margin-bottom:4px }
+    .h-th .gold { color:var(--au400) }
+    .h-sub { font-family:system-ui,sans-serif; font-size:clamp(.9rem,2vw,1.2rem);
+      font-weight:600; color:rgba(255,255,255,.72); line-height:1.4 }
+
+    .h-topic { background:rgba(201,162,39,.1); border:1px solid rgba(201,162,39,.3);
+      border-radius:var(--r-md); padding:14px 22px; margin:22px 0 26px }
+    .h-topic-lbl { font-family:system-ui,sans-serif; font-size:.6rem; letter-spacing:.22em;
+      text-transform:uppercase; color:var(--au300); margin-bottom:5px }
+    .h-topic-tx { font-family:system-ui,sans-serif; font-size:clamp(.88rem,1.8vw,1.1rem);
+      font-weight:700; color:var(--white); line-height:1.3 }
+
+    .h-meta { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin-top:22px }
+    @media (min-width:560px) { .h-meta { grid-template-columns:repeat(4,1fr) } }
+    .h-mc { background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.08);
+      border-radius:var(--r-md); padding:13px 14px; text-align:left }
+    .h-mi { font-size:1.05rem; margin-bottom:5px }
+    .h-ml { font-family:system-ui,sans-serif; font-size:.58rem; letter-spacing:.18em;
+      text-transform:uppercase; color:var(--au300); margin-bottom:3px }
+    .h-mv { font-family:system-ui,sans-serif; font-size:.8rem; font-weight:600; color:var(--white); line-height:1.35 }
+
+    .h-scr { margin-top:40px; display:flex; flex-direction:column; align-items:center; gap:6px }
+    .h-scr p { font-family:system-ui,sans-serif; font-size:.67rem; letter-spacing:.14em;
+      text-transform:uppercase; color:rgba(255,255,255,.36) }
+    .h-arr { width:26px; height:26px; border:1px solid rgba(201,162,39,.28); border-radius:50%;
+      display:flex; align-items:center; justify-content:center; color:var(--au400); font-size:.72rem;
+      animation:bounce 2.4s ease-in-out infinite }
+    @keyframes bounce { 0%,100% { transform:translateY(0) } 50% { transform:translateY(6px) } }
+
+    /* ═══════════════════════════════════════════════════════════════
+       SECTION SHARED
+    ═══════════════════════════════════════════════════════════════ */
+    .sec { max-width:900px; margin:0 auto; padding:72px 22px }
+    .sec-hd { text-align:center; margin-bottom:50px }
+    .eye { font-family:system-ui,sans-serif; font-size:.68rem; font-weight:700;
+      letter-spacing:.22em; text-transform:uppercase; color:var(--g600) }
+    .sec-h { font-family:system-ui,sans-serif; font-size:clamp(1.45rem,3vw,2.1rem);
+      font-weight:900; color:var(--g800); letter-spacing:-.015em; margin-top:10px }
+    .sec-h span { color:var(--au600) }
+    .sec-rule { width:50px; height:3px; background:linear-gradient(90deg,var(--g600),var(--au500));
+      border-radius:2px; margin:14px auto 0 }
+
+    /* ═══════════════════════════════════════════════════════════════
+       TIMELINE
+    ═══════════════════════════════════════════════════════════════ */
+    .tl { position:relative; padding-left:70px }
+    .tl::before { content:''; position:absolute; left:26px; top:8px; bottom:8px;
+      width:2px; background:linear-gradient(to bottom, var(--g600), var(--au500) 55%, var(--g600)) }
+
+    /* ── talk item ── */
+    .ti { position:relative; margin-bottom:10px }
+    .ti-dot { position:absolute; left:-52px; top:17px; width:13px; height:13px;
+      border-radius:50%; background:var(--g700); border:2.5px solid var(--au500); z-index:1;
+      transition:transform var(--dur) var(--ease), background var(--dur) var(--ease) }
+    .ti:hover .ti-dot, .ti[aria-expanded="true"] .ti-dot { background:var(--au500); transform:scale(1.25) }
+
+    .ti-btn { width:100%; text-align:left; background:var(--white);
+      border:1.5px solid rgba(25,56,37,.11); border-radius:var(--r-md);
+      padding:14px 18px; display:flex; align-items:center; gap:14px;
+      box-shadow:var(--sh-sm);
+      transition:border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease), transform var(--dur) var(--ease) }
+    .ti-btn:hover { border-color:var(--g600); box-shadow:var(--sh-md); transform:translateX(4px) }
+    .ti[aria-expanded="true"] .ti-btn { border-color:var(--g600); box-shadow:none;
+      border-radius:var(--r-md) var(--r-md) 0 0; transform:translateX(4px) }
+
+    .ti-time { font-family:system-ui,sans-serif; font-size:.74rem; font-weight:700;
+      color:var(--g600); min-width:44px; letter-spacing:.04em; flex-shrink:0 }
+    .ti-lbl { flex:1; font-family:system-ui,sans-serif; font-size:.92rem;
+      font-weight:600; color:var(--ink); line-height:1.35 }
+    .ti-chev { width:18px; height:18px; color:var(--g600); flex-shrink:0;
+      transition:transform var(--dur) var(--ease) }
+    .ti[aria-expanded="true"] .ti-chev { transform:rotate(180deg) }
+
+    /* accordion – grid-template-rows trick (no JS height measurement) */
+    .ti-body { display:grid; grid-template-rows:0fr; transition:grid-template-rows .38s var(--ease) }
+    .ti[aria-expanded="true"] .ti-body { grid-template-rows:1fr }
+    .ti-inner { overflow:hidden }
+    .ti-pad { padding:16px 20px 20px; background:var(--white);
+      border:1.5px solid var(--g600); border-top:none;
+      border-radius:0 0 var(--r-md) var(--r-md) }
+    .ti-pad p { font-family:system-ui,sans-serif; font-size:.84rem; color:var(--ink70); line-height:1.65 }
+    .ti-pad strong { color:var(--g700) }
+    .ti-pad .topic-preview { margin-top:8px; font-style:italic; color:var(--ink40) }
+
+    /* ── inline badge ── */
+    .bdg { display:inline-flex; align-items:center; gap:4px; padding:2px 9px; border-radius:100px;
+      font-family:system-ui,sans-serif; font-size:.6rem; font-weight:700;
+      letter-spacing:.08em; text-transform:uppercase; vertical-align:middle; margin-left:6px }
+    .bdg-p { background:rgba(25,56,37,.1);   color:var(--g700) }
+    .bdg-v { background:rgba(201,162,39,.15); color:var(--au700) }
+
+    /* ── break separator ── */
+    .tb { display:flex; align-items:center; gap:10px; padding:8px 0; margin-bottom:10px; position:relative }
+    .tb-dot { position:absolute; left:-52px; top:50%; transform:translateY(-50%);
+      width:7px; height:7px; border-radius:50%; background:var(--au500); opacity:.42 }
+    .tb-ln  { flex:1; height:1px; background:linear-gradient(90deg, rgba(201,162,39,.44), transparent) }
+    .tb-ln2 { flex:1; height:1px; background:linear-gradient(90deg, transparent, rgba(201,162,39,.44)) }
+    .tb-pill { font-family:system-ui,sans-serif; font-size:.62rem; font-weight:700;
+      letter-spacing:.14em; text-transform:uppercase; color:var(--au700);
+      background:var(--au100); border:1px solid rgba(201,162,39,.28);
+      border-radius:100px; padding:3px 12px; white-space:nowrap }
+
+    /* ── games block ── */
+    .tg { position:relative; margin-bottom:10px }
+    .tg-dot { position:absolute; left:-52px; top:18px; width:13px; height:13px;
+      border-radius:50%; background:var(--au500); border:2.5px solid var(--g700); z-index:1 }
+    .tg-card { background:linear-gradient(128deg, var(--g700) 0%, var(--g900) 100%);
+      border:2px solid var(--au500); border-radius:var(--r-md); padding:18px 22px;
+      display:flex; align-items:center; gap:16px;
+      box-shadow:0 6px 24px rgba(201,162,39,.16);
+      transition:transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease) }
+    .tg-card:hover { transform:translateX(4px); box-shadow:0 10px 36px rgba(201,162,39,.26) }
+    .tg-ico { font-size:2rem; flex-shrink:0 }
+    .tg-time { font-family:system-ui,sans-serif; font-size:.7rem; font-weight:700; color:var(--au300); margin-bottom:3px }
+    .tg-title { font-family:system-ui,sans-serif; font-size:.96rem; font-weight:800; color:var(--white) }
+    .tg-sub   { font-family:system-ui,sans-serif; font-size:.76rem; color:rgba(255,255,255,.52); margin-top:2px }
+
+    /* ── panel block ── */
+    .tpn { position:relative; margin-bottom:10px }
+    .tpn-dot { position:absolute; left:-52px; top:18px; width:13px; height:13px;
+      border-radius:50%; background:var(--g700); border:2.5px solid var(--au500); z-index:1 }
+    .tpn-card { background:var(--white); border:1.5px solid rgba(25,56,37,.11);
+      border-radius:var(--r-md); padding:18px 20px; box-shadow:var(--sh-sm) }
+    .tpn-hd { display:flex; align-items:center; gap:14px; margin-bottom:14px }
+    .tpn-time  { font-family:system-ui,sans-serif; font-size:.74rem; font-weight:700; color:var(--g600); min-width:44px }
+    .tpn-title { font-family:system-ui,sans-serif; font-size:.92rem; font-weight:700; color:var(--ink) }
+    .tpn-faces { display:flex; flex-wrap:wrap; gap:9px }
+    .tpn-face { display:flex; align-items:center; gap:7px;
+      background:var(--cream); border:1px solid rgba(25,56,37,.1);
+      border-radius:100px; padding:5px 12px 5px 4px;
+      font-family:system-ui,sans-serif; font-size:.72rem; font-weight:600; color:var(--ink) }
+    .tpn-av { width:26px; height:26px; border-radius:50%;
+      display:flex; align-items:center; justify-content:center;
+      font-size:.56rem; font-weight:800; color:var(--white); flex-shrink:0; overflow:hidden }
+    .tpn-av img { width:100%; height:100%; object-fit:cover }
+
+    /* ── end marker ── */
+    .tend { position:relative; margin-bottom:10px }
+    .tend-dot { position:absolute; left:-52px; top:17px; width:13px; height:13px;
+      border-radius:50%; background:var(--au500); border:2.5px solid var(--g800); z-index:1 }
+    .tend-bar { background:rgba(201,162,39,.07); border:1.5px solid rgba(201,162,39,.28);
+      border-radius:var(--r-md); padding:13px 18px; display:flex; align-items:center; gap:14px }
+    .tend-time { font-family:system-ui,sans-serif; font-size:.74rem; font-weight:700; color:var(--au700); min-width:44px }
+    .tend-lbl  { font-family:system-ui,sans-serif; font-size:.9rem; font-weight:700; color:var(--au700) }
+
+    /* ═══════════════════════════════════════════════════════════════
+       MODERATOR CARD
+    ═══════════════════════════════════════════════════════════════ */
+    .mod-wrap { display:flex; justify-content:center; margin-bottom:48px }
+    .mod-card {
+      background:var(--white);
+      border:1.5px solid rgba(201,162,39,.3);
+      border-radius:var(--r-xl);
+      padding:28px 32px;
+      display:flex; align-items:center; gap:22px;
+      max-width:480px; width:100%;
+      box-shadow:0 4px 20px rgba(201,162,39,.1);
+      position:relative; overflow:hidden;
+    }
+    .mod-card::before { content:''; position:absolute; left:0; top:0; bottom:0;
+      width:4px; background:linear-gradient(to bottom, var(--au500), var(--au700)) }
+    .mod-av { width:72px; height:72px; border-radius:50%; flex-shrink:0;
+      display:flex; align-items:center; justify-content:center;
+      font-family:system-ui,sans-serif; font-size:1.3rem; font-weight:800; color:var(--white);
+      background:linear-gradient(135deg, var(--au700), var(--au500));
+      border:3px solid rgba(201,162,39,.36); overflow:hidden }
+    .mod-av img { width:100%; height:100%; object-fit:cover }
+    .mod-role { font-family:system-ui,sans-serif; font-size:.62rem; font-weight:700;
+      letter-spacing:.18em; text-transform:uppercase; color:var(--au700); margin-bottom:4px }
+    .mod-name { font-family:system-ui,sans-serif; font-size:1.1rem; font-weight:900; color:var(--g800) }
+    .mod-sub  { font-family:system-ui,sans-serif; font-size:.8rem; color:var(--ink70); margin-top:3px }
+
+    /* ═══════════════════════════════════════════════════════════════
+       SPEAKER CARDS
+    ═══════════════════════════════════════════════════════════════ */
+    .sg { display:grid; grid-template-columns:repeat(auto-fill, minmax(192px,1fr)); gap:20px }
+
+    .sc { background:var(--white); border:1.5px solid rgba(25,56,37,.1); border-radius:var(--r-lg);
+      padding:28px 20px 22px; text-align:center; position:relative; overflow:hidden;
+      cursor:pointer; transition:transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease), border-color var(--dur) var(--ease);
+      will-change:transform }
+    .sc::after { content:''; position:absolute; inset:0;
+      background:linear-gradient(135deg, rgba(25,56,37,.04) 0%, transparent 58%);
+      opacity:0; transition:opacity var(--dur) var(--ease); pointer-events:none }
+    .sc:hover, .sc:focus-visible { transform:translateY(-8px); box-shadow:0 18px 52px rgba(25,56,37,.13); border-color:var(--g600); outline:none }
+    .sc:hover::after, .sc:focus-visible::after { opacity:1 }
+
+    /* avatar wrap — shows img OR initials */
+    .av-wrap { position:relative; display:inline-block; margin-bottom:16px }
+    .av-img  { width:84px; height:84px; border-radius:50%; object-fit:cover;
+      border:3px solid rgba(201,162,39,.36); display:block;
+      transition:transform var(--dur) var(--ease-spring) }
+    .av-ini  { width:84px; height:84px; border-radius:50%; display:none;
+      align-items:center; justify-content:center; font-family:system-ui,sans-serif;
+      font-size:1.5rem; font-weight:800; color:var(--white);
+      border:3px solid rgba(201,162,39,.36);
+      transition:transform var(--dur) var(--ease-spring) }
+    .av-wrap.ini .av-img { display:none }
+    .av-wrap.ini .av-ini { display:flex }
+    .sc:hover .av-img, .sc:focus-visible .av-img,
+    .sc:hover .av-ini, .sc:focus-visible .av-ini { transform:scale(1.06) }
+
+    .av-vcam { position:absolute; bottom:0; right:0; width:22px; height:22px;
+      border-radius:50%; background:var(--au500); border:2px solid var(--white);
+      display:flex; align-items:center; justify-content:center; font-size:.6rem }
+
+    .sc-num   { font-family:system-ui,sans-serif; font-size:.6rem; font-weight:700;
+      letter-spacing:.2em; text-transform:uppercase; color:var(--au700); margin-bottom:5px }
+    .sc-name  { font-family:system-ui,sans-serif; font-size:.9rem; font-weight:800; color:var(--ink); line-height:1.3; margin-bottom:8px }
+    .sc-topic { font-size:.76rem; color:var(--ink70); font-style:italic; line-height:1.4; margin-top:8px }
+    .sc-cta   { margin-top:14px; font-family:system-ui,sans-serif; font-size:.64rem;
+      font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--g600);
+      opacity:0; transform:translateY(5px);
+      transition:opacity var(--dur) var(--ease), transform var(--dur) var(--ease) }
+    .sc:hover .sc-cta, .sc:focus-visible .sc-cta { opacity:1; transform:translateY(0) }
+
+    /* ═══════════════════════════════════════════════════════════════
+       MODAL
+    ═══════════════════════════════════════════════════════════════ */
+    .mo { position:fixed; inset:0; z-index:900;
+      background:rgba(9,18,12,.78); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);
+      display:flex; align-items:center; justify-content:center; padding:20px;
+      opacity:0; pointer-events:none; transition:opacity .28s ease }
+    .mo.open { opacity:1; pointer-events:all }
+
+    .mo-box { background:var(--white); border-radius:var(--r-xl);
+      width:100%; max-width:480px; max-height:92svh; overflow-y:auto;
+      box-shadow:0 40px 120px rgba(0,0,0,.32);
+      transform:translateY(32px) scale(.95); transition:transform .44s var(--ease-spring);
+      scrollbar-width:thin; scrollbar-color:var(--g100) transparent }
+    .mo.open .mo-box { transform:translateY(0) scale(1) }
+
+    .mo-top { background:linear-gradient(148deg, var(--g800), var(--g700));
+      border-radius:var(--r-xl) var(--r-xl) 0 0;
+      padding:36px 28px 28px; text-align:center; position:relative }
+    .mo-close { position:absolute; top:13px; right:13px; width:30px; height:30px;
+      background:rgba(255,255,255,.1); border:none; border-radius:50%;
+      display:flex; align-items:center; justify-content:center;
+      color:rgba(255,255,255,.62); font-size:.88rem;
+      transition:background var(--dur) var(--ease), color var(--dur) var(--ease) }
+    .mo-close:hover { background:rgba(255,255,255,.2); color:var(--white) }
+
+    /* modal avatar */
+    .mo-av { width:100px; height:100px; border-radius:50%; margin:0 auto 16px;
+      border:4px solid rgba(201,162,39,.42); box-shadow:0 10px 40px rgba(0,0,0,.22);
+      overflow:hidden; position:relative; display:flex; align-items:center; justify-content:center }
+    .mo-av img  { position:absolute; inset:0; width:100%; height:100%; object-fit:cover }
+    .mo-av-ini  { font-family:system-ui,sans-serif; font-size:2rem; font-weight:800; color:var(--white); position:relative; z-index:1 }
+
+    .mo-name { font-family:system-ui,sans-serif; font-size:1.15rem; font-weight:900; color:var(--white); margin-bottom:8px }
+
+    .mo-body { padding:24px 28px 34px }
+    .mo-lbl  { font-family:system-ui,sans-serif; font-size:.6rem; font-weight:700;
+      letter-spacing:.22em; text-transform:uppercase; color:var(--g600); margin-bottom:5px }
+    .mo-topic { font-family:system-ui,sans-serif; font-size:.94rem; font-weight:700;
+      color:var(--g800); margin-bottom:20px; padding-bottom:18px;
+      border-bottom:1px solid rgba(25,56,37,.1); line-height:1.4 }
+    .mo-desc  { font-size:.88rem; color:var(--ink70); line-height:1.76; margin-bottom:20px;
+      padding-bottom:18px; border-bottom:1px solid rgba(25,56,37,.08) }
+    .mo-bio   { font-size:.85rem; color:var(--ink70); line-height:1.76 }
+    .mo-bio-box { background:var(--g100); border-left:3px solid var(--au500);
+      border-radius:0 var(--r-sm) var(--r-sm) 0; padding:14px 16px; margin-top:6px }
+
+    /* ═══════════════════════════════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════════════════════════════ */
+    .footer { background:var(--g950); padding:36px 22px; text-align:center }
+    .footer-org  { font-family:system-ui,sans-serif; font-size:.86rem; font-weight:700; color:var(--au300); margin-bottom:4px }
+    .footer-info { font-family:system-ui,sans-serif; font-size:.76rem; color:rgba(255,255,255,.4); margin-bottom:12px }
+    .footer-div  { width:44px; height:1px; background:rgba(201,162,39,.28); margin:14px auto }
+    .footer-tag  { font-family:system-ui,sans-serif; font-size:.67rem; letter-spacing:.08em;
+      text-transform:uppercase; color:var(--au500) }
+
+    /* ═══════════════════════════════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════════════════════════════ */
+    @media (max-width:480px) {
+      .tl { padding-left:50px }
+      .tl::before { left:18px }
+      .ti-dot,.tg-dot,.tpn-dot,.tend-dot { left:-36px }
+      .tb-dot { left:-36px }
+      .h-meta { grid-template-columns:1fr 1fr }
+      .mod-card { flex-direction:column; text-align:center }
+      .mod-card::before { display:none }
+      .mo-body { padding:18px 18px 26px }
+      .mo-top  { padding:28px 18px 22px }
+      .sg { grid-template-columns:repeat(2,1fr) }
+    }
+    @media (max-width:340px) {
+      .h-meta { grid-template-columns:1fr }
+      .sg { grid-template-columns:1fr }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     HERO  (depth-0→5)
+═══════════════════════════════════════════════════════════════ -->
+<header class="hero" role="banner">
+  <div class="h-bg"   aria-hidden="true"></div>
+  <div class="h-glow" aria-hidden="true"><div class="h-ga"></div><div class="h-gb"></div></div>
+  <div class="h-tile" aria-hidden="true"></div>
+  <div class="h-frame"aria-hidden="true"></div>
+  <p class="h-bsm"    aria-label="Bismillah">﷽</p>
+
+  <div class="h-con">
+    <div class="h-org">
+      <span class="h-dot"></span>
+      Al-Harakatul-Islamiyyah
+      <span class="h-dot"></span>
+      Abuja Daira of TIM
+    </div>
+
+    <p class="h-ev">TIM 3rd Ijtimah &bull; 1447 AH</p>
+    <div class="h-rule" aria-hidden="true"></div>
+
+    <p class="h-ti">Theme:</p>
+    <h1 class="h-th">Beyond Personal <span class="gold">Success:</span></h1>
+    <p class="h-sub">Raising Purposeful Professionals &amp; Building a Model Ummah</p>
+
+    <div class="h-topic" role="note">
+      <p class="h-topic-lbl">Topic</p>
+      <p class="h-topic-tx">Decoding the Future — Tech Trends &amp; the 21st Century Khilafah</p>
+    </div>
+
+    <div class="h-meta">
+      <div class="h-mc">
+        <div class="h-mi" aria-hidden="true">📅</div>
+        <p class="h-ml">Date</p>
+        <p class="h-mv">Saturday, 16 May 2026<br><span style="opacity:.68;font-size:.72rem">29 Dhul-Qa'dah 1447 AH</span></p>
+      </div>
+      <div class="h-mc">
+        <div class="h-mi" aria-hidden="true">🕙</div>
+        <p class="h-ml">Time</p>
+        <p class="h-mv">10:00 AM – 1:30 PM</p>
+      </div>
+      <div class="h-mc">
+        <div class="h-mi" aria-hidden="true">📍</div>
+        <p class="h-ml">Venue</p>
+        <p class="h-mv">FOMWAN Jumu'at Mosque, Utako, FCT Abuja</p>
+      </div>
+      <div class="h-mc">
+        <div class="h-mi" aria-hidden="true">🏛</div>
+        <p class="h-ml">Session</p>
+        <p class="h-mv">Symposium Group 2</p>
+      </div>
+    </div>
+
+    <div class="h-scr" aria-hidden="true">
+      <p>Scroll to explore</p>
+      <div class="h-arr">↓</div>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       PROGRAMME
+  ═══════════════════════════════════════════════════════════════ -->
+  <section class="sec" aria-labelledby="prog-h">
+    <div class="sec-hd fu">
+      <p class="eye">Event Schedule</p>
+      <h2 class="sec-h" id="prog-h">Programme <span>Timeline</span></h2>
+      <div class="sec-rule" aria-hidden="true"></div>
+    </div>
+
+    <div class="tl" role="list" aria-label="Event programme">
+
+      <!-- 10:00 -->
+      <div class="ti fu" aria-expanded="false" role="listitem">
+        <div class="ti-dot" aria-hidden="true"></div>
+        <button class="ti-btn" onclick="tog(this)" aria-label="10:00 Registration — expand">
+          <span class="ti-time">10:00</span>
+          <span class="ti-lbl">Registration &amp; Arrival</span>
+          <svg class="ti-chev" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="ti-body"><div class="ti-inner"><div class="ti-pad">
+          <p>Guests are welcomed and registered at the venue entrance. Please arrive early to settle in before the programme begins.</p>
+        </div></div></div>
+      </div>
+
+      <!-- 10:15 -->
+      <div class="ti fu" aria-expanded="false" role="listitem">
+        <div class="ti-dot" aria-hidden="true"></div>
+        <button class="ti-btn" onclick="tog(this)" aria-label="10:15 Quranic Recitation — expand">
+          <span class="ti-time">10:15</span>
+          <span class="ti-lbl">Quranic Recitation &amp; Opening Remarks</span>
+          <svg class="ti-chev" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="ti-body"><div class="ti-inner"><div class="ti-pad">
+          <p>The programme opens with a recitation from the Holy Qur'an, followed by opening remarks from the Moderator.</p>
+        </div></div></div>
+      </div>
+
+      <!-- 10:30 Speaker 1 -->
+      <div class="ti fu" aria-expanded="false" role="listitem">
+        <div class="ti-dot" aria-hidden="true"></div>
+        <button class="ti-btn" onclick="tog(this)" aria-label="10:30 Fauziya Mohammed — expand">
+          <span class="ti-time">10:30</span>
+          <span class="ti-lbl">Fauziya Mohammed (Ziya) <span class="bdg bdg-p">🏛 Physical</span></span>
+          <svg class="ti-chev" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="ti-body"><div class="ti-inner"><div class="ti-pad">
+          <p><strong>Building Wealth in the New Age of Technology</strong></p>
+          <p class="topic-preview">How the modern Muslim professional can intentionally position themselves to build lasting wealth — not just for personal gain, but as a tool for community impact and Ummah development.</p>
+        </div></div></div>
+      </div>
+
+      <div class="tb fu" role="separator" aria-label="5-minute break">
+        <div class="tb-dot" aria-hidden="true"></div>
+        <div class="tb-ln" aria-hidden="true"></div>
+        <span class="tb-pill">5-min Break</span>
+        <div class="tb-ln2" aria-hidden="true"></div>
+      </div>
+
+      <!-- 10:55 Speaker 2 Virtual -->
+      <div class="ti fu" aria-expanded="false" role="listitem">
+        <div class="ti-dot" aria-hidden="true"></div>
+        <button class="ti-btn" onclick="tog(this)" aria-label="10:55 Abdulsamii Ajala, virtual — expand">
+          <span class="ti-time">10:55</span>
+          <span class="ti-lbl">Abdulsamii Ajala <span class="bdg bdg-v">🎥 Virtual</span></span>
+          <svg class="ti-chev" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="ti-body"><div class="ti-inner"><div class="ti-pad">
+          <p><strong>[Update topic before launch]</strong> — <em>Joining virtually</em></p>
+          <p class="topic-preview">Senior Fullstack Engineer and technology consultant with expertise in scalable software, AI integration, and digital product architecture.</p>
+        </div></div></div>
+      </div>
+
+      <div class="tb fu" role="separator" aria-label="5-minute break">
+        <div class="tb-dot" aria-hidden="true"></div>
+        <div class="tb-ln" aria-hidden="true"></div>
+        <span class="tb-pill">5-min Break</span>
+        <div class="tb-ln2" aria-hidden="true"></div>
+      </div>
+
+      <!-- 11:20 Speaker 3 Virtual -->
+      <div class="ti fu" aria-expanded="false" role="listitem">
+        <div class="ti-dot" aria-hidden="true"></div>
+        <button class="ti-btn" onclick="tog(this)" aria-label="11:20 Abdulqahar Aminu Jatto, virtual — expand">
+          <span class="ti-time">11:20</span>
+          <span class="ti-lbl">Abdulqahar Aminu Jatto <span class="bdg bdg-v">🎥 Virtual</span></span>
+          <svg class="ti-chev" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="ti-body"><div class="ti-inner"><div class="ti-pad">
+          <p><strong>[Update topic before launch]</strong> — <em>Joining virtually</em></p>
+          <p class="topic-preview">Full bio and topic details to be updated before the event.</p>
+        </div></div></div>
+      </div>
+
+      <div class="tb fu" role="separator" aria-label="5-minute break">
+        <div class="tb-dot" aria-hidden="true"></div>
+        <div class="tb-ln" aria-hidden="true"></div>
+        <span class="tb-pill">5-min Break</span>
+        <div class="tb-ln2" aria-hidden="true"></div>
+      </div>
+
+      <!-- 11:45 Speaker 4 -->
+      <div class="ti fu" aria-expanded="false" role="listitem">
+        <div class="ti-dot" aria-hidden="true"></div>
+        <button class="ti-btn" onclick="tog(this)" aria-label="11:45 Abdulhayyi Yusuf — expand">
+          <span class="ti-time">11:45</span>
+          <span class="ti-lbl">Abdulhayyi Yusuf <span class="bdg bdg-p">🏛 Physical</span></span>
+          <svg class="ti-chev" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="ti-body"><div class="ti-inner"><div class="ti-pad">
+          <p><strong>Blockchain &amp; the Internet of Values — Decentralizing Trust for Justice and Transparency</strong></p>
+          <p class="topic-preview">Blockchain not as speculation, but as trust infrastructure for justice — exploring smart contracts, decentralized zakat distribution, tokenized waqf management, and halal microfinance.</p>
+        </div></div></div>
+      </div>
+
+      <div class="tb fu" role="separator" aria-label="5-minute break">
+        <div class="tb-dot" aria-hidden="true"></div>
+        <div class="tb-ln" aria-hidden="true"></div>
+        <span class="tb-pill">5-min Break</span>
+        <div class="tb-ln2" aria-hidden="true"></div>
+      </div>
+
+      <!-- 12:10 Speaker 5 -->
+      <div class="ti fu" aria-expanded="false" role="listitem">
+        <div class="ti-dot" aria-hidden="true"></div>
+        <button class="ti-btn" onclick="tog(this)" aria-label="12:10 S. A Yusuf — expand">
+          <span class="ti-time">12:10</span>
+          <span class="ti-lbl">S. A Yusuf <span class="bdg bdg-p">🏛 Physical</span></span>
+          <svg class="ti-chev" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="ti-body"><div class="ti-inner"><div class="ti-pad">
+          <p><strong>Finding Your Unique Voice: Beyond Personal Success</strong></p>
+          <p class="topic-preview">Shifting focus from self-expression for validation to purposeful expression for impact — your voice is not just for personal success, but for serving something greater than yourself.</p>
+        </div></div></div>
+      </div>
+
+      <!-- Games -->
+      <div class="tg fu" role="listitem" aria-label="12:35 Games and Activity Time">
+        <div class="tg-dot" aria-hidden="true"></div>
+        <div class="tg-card">
+          <span class="tg-ico" aria-hidden="true">🎯</span>
+          <div>
+            <p class="tg-time">12:35</p>
+            <p class="tg-title">Games &amp; Activity Time</p>
+            <p class="tg-sub">Interactive challenges, knowledge quizzes &amp; group activities</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel -->
+      <div class="tpn fu" role="listitem" aria-label="1:00 Panel Session">
+        <div class="tpn-dot" aria-hidden="true"></div>
+        <div class="tpn-card">
+          <div class="tpn-hd">
+            <span class="tpn-time">1:00</span>
+            <span class="tpn-title">Panel Session — All Speakers + Moderator</span>
+          </div>
+          <div class="tpn-faces">
+            <div class="tpn-face">
+              <div class="tpn-av" style="background:var(--g700)">
+                <img src="1.jpg" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                <span style="display:none">FM</span>
+              </div>
+              Fauziya Mohammed
+            </div>
+            <div class="tpn-face">
+              <div class="tpn-av" style="background:var(--g700)">
+                <img src="2.jpg" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                <span style="display:none">AA</span>
+              </div>
+              Abdulsamii Ajala
+            </div>
+            <div class="tpn-face">
+              <div class="tpn-av" style="background:var(--au700);font-size:.55rem;font-weight:800;color:var(--white)">AJ</div>
+              Abdulqahar Jatto
+            </div>
+            <div class="tpn-face">
+              <div class="tpn-av" style="background:var(--g700)">
+                <img src="4.jpg" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                <span style="display:none">AY</span>
+              </div>
+              Abdulhayyi Yusuf
+            </div>
+            <div class="tpn-face">
+              <div class="tpn-av" style="background:var(--g700)">
+                <img src="5.jpg" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                <span style="display:none">SY</span>
+              </div>
+              S. A Yusuf
+            </div>
+            <div class="tpn-face">
+              <div class="tpn-av" style="background:var(--au700);font-size:.55rem;font-weight:800;color:var(--white)">AY</div>
+              Adam Yusuf <span style="font-size:.62rem;color:var(--au700);margin-left:3px">(Mod.)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Closing -->
+      <div class="ti fu" aria-expanded="false" role="listitem">
+        <div class="ti-dot" aria-hidden="true"></div>
+        <button class="ti-btn" onclick="tog(this)" aria-label="1:15 Closing Remarks — expand">
+          <span class="ti-time">1:15</span>
+          <span class="ti-lbl">Closing Remarks &amp; Du'a</span>
+          <svg class="ti-chev" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="ti-body"><div class="ti-inner"><div class="ti-pad">
+          <p>The programme closes with final remarks and a communal Du'a for Allah's blessing, acceptance, and guidance upon all attendees.</p>
+        </div></div></div>
+      </div>
+
+      <!-- End -->
+      <div class="tend fu" role="listitem" aria-label="1:30 End of Programme">
+        <div class="tend-dot" aria-hidden="true"></div>
+        <div class="tend-bar">
+          <span class="tend-time">1:30</span>
+          <span class="tend-lbl">End of Programme</span>
+        </div>
+      </div>
+
+    </div><!-- /.tl -->
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       SPEAKERS
+  ═══════════════════════════════════════════════════════════════ -->
+  <section class="sec" aria-labelledby="spk-h" style="padding-top:0">
+    <div class="sec-hd fu">
+      <p class="eye">Meet the Presenters</p>
+      <h2 class="sec-h" id="spk-h">Speakers &amp; <span>Moderator</span></h2>
+      <div class="sec-rule" aria-hidden="true"></div>
+    </div>
+
+    <!-- Moderator card (requirement 10) -->
+    <div class="mod-wrap fu">
+      <div class="mod-card">
+        <div class="mod-av">AY</div>
+        <div>
+          <p class="mod-role">Session Moderator</p>
+          <p class="mod-name">Adam Yusuf</p>
+          <p class="mod-sub">TIM 3rd Ijtimah 1447 AH</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Speaker grid -->
+    <div class="sg">
+
+      <!-- Speaker 1 — 1.jpg -->
+      <article class="sc fu" tabindex="0" role="button"
+        aria-label="View profile for Fauziya Mohammed"
+        onclick="openM(0)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openM(0)}">
+        <div class="av-wrap" id="av0">
+          <img class="av-img" src="1.jpg" alt="Fauziya Mohammed"
+            onerror="document.getElementById('av0').classList.add('ini')">
+          <div class="av-ini" style="background:linear-gradient(135deg,var(--g700),var(--g500))">FM</div>
+        </div>
+        <p class="sc-num">Speaker 01</p>
+        <h3 class="sc-name">Fauziya Mohammed (Ziya)</h3>
+        <span class="bdg bdg-p">🏛 Physical</span>
+        <p class="sc-topic">Building Wealth in the New Age of Technology</p>
+        <p class="sc-cta">View Profile →</p>
+      </article>
+
+      <!-- Speaker 2 — 2.jpg, Virtual -->
+      <article class="sc fu" tabindex="0" role="button"
+        aria-label="View profile for Abdulsamii Ajala, virtual speaker"
+        onclick="openM(1)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openM(1)}">
+        <div class="av-wrap" id="av1">
+          <img class="av-img" src="2.jpg" alt="Abdulsamii Ajala"
+            onerror="document.getElementById('av1').classList.add('ini')">
+          <div class="av-ini" style="background:linear-gradient(135deg,var(--au700),var(--au500))">AA</div>
+          <div class="av-vcam" aria-label="Virtual speaker">🎥</div>
+        </div>
+        <p class="sc-num">Speaker 02</p>
+        <h3 class="sc-name">Abdulsamii Ajala</h3>
+        <span class="bdg bdg-v">🎥 Virtual</span>
+        <p class="sc-topic">[Update topic]</p>
+        <p class="sc-cta">View Profile →</p>
+      </article>
+
+      <!-- Speaker 3 — initials AJ, Virtual -->
+      <article class="sc fu" tabindex="0" role="button"
+        aria-label="View profile for Abdulqahar Aminu Jatto, virtual speaker"
+        onclick="openM(2)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openM(2)}">
+        <div class="av-wrap ini">
+          <div class="av-ini" style="background:linear-gradient(135deg,var(--au700),var(--au500))">AJ</div>
+          <div class="av-vcam" aria-label="Virtual speaker">🎥</div>
+        </div>
+        <p class="sc-num">Speaker 03</p>
+        <h3 class="sc-name">Abdulqahar Aminu Jatto</h3>
+        <span class="bdg bdg-v">🎥 Virtual</span>
+        <p class="sc-topic">[Update topic]</p>
+        <p class="sc-cta">View Profile →</p>
+      </article>
+
+      <!-- Speaker 4 — 4.jpg -->
+      <article class="sc fu" tabindex="0" role="button"
+        aria-label="View profile for Abdulhayyi Yusuf"
+        onclick="openM(3)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openM(3)}">
+        <div class="av-wrap" id="av3">
+          <img class="av-img" src="4.jpg" alt="Abdulhayyi Yusuf"
+            onerror="document.getElementById('av3').classList.add('ini')">
+          <div class="av-ini" style="background:linear-gradient(135deg,var(--g700),var(--g500))">AY</div>
+        </div>
+        <p class="sc-num">Speaker 04</p>
+        <h3 class="sc-name">Abdulhayyi Yusuf</h3>
+        <span class="bdg bdg-p">🏛 Physical</span>
+        <p class="sc-topic">Blockchain &amp; the Internet of Values</p>
+        <p class="sc-cta">View Profile →</p>
+      </article>
+
+      <!-- Speaker 5 — 5.jpg -->
+      <article class="sc fu" tabindex="0" role="button"
+        aria-label="View profile for S. A Yusuf"
+        onclick="openM(4)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openM(4)}">
+        <div class="av-wrap" id="av4">
+          <img class="av-img" src="5.jpg" alt="S. A Yusuf"
+            onerror="document.getElementById('av4').classList.add('ini')">
+          <div class="av-ini" style="background:linear-gradient(135deg,var(--g700),var(--g500))">SY</div>
+        </div>
+        <p class="sc-num">Speaker 05</p>
+        <h3 class="sc-name">S. A Yusuf</h3>
+        <span class="bdg bdg-p">🏛 Physical</span>
+        <p class="sc-topic">Finding Your Unique Voice: Beyond Personal Success</p>
+        <p class="sc-cta">View Profile →</p>
+      </article>
+
+    </div><!-- /.sg -->
+  </section>
+</main>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════════════════════════ -->
+<footer class="footer" role="contentinfo">
+  <p class="footer-org">Al-Harakatul-Islamiyyah — Abuja Daira of TIM</p>
+  <p class="footer-info">TIM 3rd Ijtimah 1447 AH &bull; Saturday, 16 May 2026 &bull; FOMWAN Jumu'at Mosque, Utako, FCT Abuja</p>
+  <div class="footer-div" aria-hidden="true"></div>
+  <p class="footer-tag">Striving for Allah's Pleasure and the Establishment of His Shariah</p>
+</footer>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     MODAL
+═══════════════════════════════════════════════════════════════ -->
+<div class="mo" id="modal" role="dialog" aria-modal="true" aria-labelledby="mo-name"
+  onclick="if(event.target===this)closeM()">
+  <div class="mo-box">
+
+    <div class="mo-top">
+      <button class="mo-close" onclick="closeM()" aria-label="Close speaker profile">✕</button>
+      <div class="mo-av" id="mo-av">
+        <span class="mo-av-ini" id="mo-ini" aria-hidden="true"></span>
+      </div>
+      <h2 class="mo-name" id="mo-name"></h2>
+      <span class="bdg" id="mo-bdg"></span>
+    </div>
+
+    <div class="mo-body">
+      <p class="mo-lbl">Talk Topic</p>
+      <p class="mo-topic" id="mo-topic"></p>
+
+      <p class="mo-lbl">Talk Description</p>
+      <p class="mo-desc" id="mo-desc"></p>
+
+      <p class="mo-lbl">Biography</p>
+      <div class="mo-bio-box">
+        <p class="mo-bio" id="mo-bio"></p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+/* ═══════════════════════════════════════════════════════════════
+   SPEAKER DATA
+   Update [UPDATE …] fields before launch
+═══════════════════════════════════════════════════════════════ */
+const SPK = [
+  {
+    name: "Fauziya Mohammed (Ziya)",
+    initials: "FM",
+    mode: "Physical",
+    img: "1.jpg",
+    avi: "linear-gradient(135deg,#1e4d33,#3a8058)",
+    topic: "Building Wealth in the New Age of Technology",
+    desc: "In a world where technology is rapidly reshaping economies and industries, this talk explores how the modern Muslim professional can intentionally position themselves to build lasting wealth — not just for personal gain, but as a tool for community impact and Ummah development. Drawing from her experience designing for social change, Ziya unpacks the intersection of design thinking, digital skills, and financial empowerment for the next generation of African tech professionals.",
+    bio: "Fauziya Mohammed (Ziya) serves as an Experience Design Manager at Ashoka Changemakers, where she leads design initiatives that foster social innovation and empower changemakers worldwide. With more than eight years of experience designing for social change, she has distinguished herself as an exceptional designer, crafting impactful user experiences that respond to complex global challenges. Her work consistently bridges the gap between design and social impact, and she has collaborated with prominent organisations such as Outsource Global, WriteTech Hub, and She Code Africa — where she served as Lead Designer, championing and empowering women in tech across Africa. Beyond her professional roles, Ziya is a dedicated mentor to emerging designers and an active contributor to community-driven initiatives, including Women Techmakers Lokoja (Ambassador), Accessibility Nigeria (Design Lead), GDG Lokoja (Design Lead), and 3MTT (Design Mentor)."
+  },
+  {
+    name: "Abdulsamii Ajala",
+    initials: "AA",
+    mode: "Virtual",
+    img: "2.jpg",
+    avi: "linear-gradient(135deg,#8a6b0c,#c9a227)",
+    topic: "[Update topic before launch]",
+    desc: "[Update talk description before launch]",
+    bio: "Abdulsamii Ajala is a Senior Fullstack Engineer and technology consultant with expertise in scalable software systems, AI integration, and digital product architecture. With experience spanning engineering, technical assessment, and product innovation, he has worked with international teams and contributed to developer talent evaluation at Andela. His interests include AI-first systems, automation, fintech, agritech, and building practical digital solutions for emerging markets."
+  },
+  {
+    name: "Abdulqahar Aminu Jatto",
+    initials: "AJ",
+    mode: "Virtual",
+    img: null,
+    avi: "linear-gradient(135deg,#8a6b0c,#c9a227)",
+    topic: "[Update topic before launch]",
+    desc: "[Update talk description before launch]",
+    bio: "[Update biography before launch]"
+  },
+  {
+    name: "Abdulhayyi Yusuf",
+    initials: "AY",
+    mode: "Physical",
+    img: "4.jpg",
+    avi: "linear-gradient(135deg,#1e4d33,#3a8058)",
+    topic: "Blockchain & the Internet of Values — Decentralizing Trust for Justice and Transparency",
+    desc: "This presentation examines blockchain not as a vehicle for speculation, but as a trust infrastructure for justice and economic empowerment. Drawing on Islamic principles — from the Quranic emphasis on transparent contracts to the prohibition of gharar and riba — it explores how smart contracts and decentralized systems can serve the Ummah through auditable zakat distribution, tokenized waqf management, halal microfinance, and financial inclusion for unbanked Muslim communities across Africa and beyond.",
+    bio: "Abdul-hayyi Yusuf is a blockchain developer, builder, and community steward passionate about leveraging emerging technologies to solve real-world problems across Africa. He holds a background in Mechatronics Engineering and serves as Steward of the Logos Abuja Circle — a chapter of Logos, a privacy-default blockchain network building infrastructure for decentralized communities and digital sovereignty. His work spans blockchain infrastructure, real-world asset tokenization, agritech innovation, and community-driven digital products. He is co-founding Prova, an onchain trade credit insurance platform for African markets, with projects in the pipeline including NestBlock (blockchain-powered real estate tokenization) and AgriYield (technology-enabled solutions for agriculture and economic inclusion)."
+  },
+  {
+    name: "S. A Yusuf",
+    initials: "SY",
+    mode: "Physical",
+    img: "5.jpg",
+    avi: "linear-gradient(135deg,#1e4d33,#3a8058)",
+    topic: "Finding Your Unique Voice: Beyond Personal Success",
+    desc: "In a world driven by comparison, noise, and constant pressure to fit in, many young people struggle not with confidence but with clarity. This talk challenges the status quo by shifting focus from self-expression for validation to purposeful expression for impact. It explores how each individual has been intentionally created with a unique combination of values, experiences, and abilities — and that this uniqueness is not accidental, but a responsibility. Grounded in reflection and spiritual perspective, the session guides participants to understand that their voice is more than what they say — it is how they contribute to the world around them.",
+    bio: "[Update biography before launch]"
+  }
+];
+
+/* ─── timeline toggle ─── */
+function tog(btn) {
+  const item = btn.closest('.ti');
+  const open = item.getAttribute('aria-expanded') === 'true';
+  item.setAttribute('aria-expanded', String(!open));
+}
+
+/* ─── modal ─── */
+let lastFocus = null;
+
+function openM(i) {
+  lastFocus = document.activeElement;
+  const s = SPK[i];
+  const virt = s.mode === 'Virtual';
+
+  /* avatar */
+  const av  = document.getElementById('mo-av');
+  const ini = document.getElementById('mo-ini');
+  av.style.background = s.avi;
+  ini.textContent = s.initials;
+  ini.style.display = 'block';
+
+  /* remove any previous img */
+  const prev = av.querySelector('img');
+  if (prev) prev.remove();
+
+  if (s.img) {
+    const img = document.createElement('img');
+    img.src = s.img;
+    img.alt = s.name;
+    img.onload  = () => { ini.style.display = 'none'; };
+    img.onerror = () => { img.remove(); ini.style.display = 'block'; };
+    av.appendChild(img);
+  }
+
+  document.getElementById('mo-name').textContent  = s.name;
+  document.getElementById('mo-topic').textContent = s.topic;
+  document.getElementById('mo-desc').textContent  = s.desc;
+  document.getElementById('mo-bio').textContent   = s.bio;
+
+  const bdg = document.getElementById('mo-bdg');
+  bdg.textContent = virt ? '🎥 Virtual' : '🏛 Physical';
+  bdg.className   = 'bdg ' + (virt ? 'bdg-v' : 'bdg-p');
+
+  const m = document.getElementById('modal');
+  m.classList.add('open');
+  m.querySelector('.mo-box').scrollTop = 0;
+  document.body.style.overflow = 'hidden';
+  requestAnimationFrame(() => m.querySelector('.mo-close').focus());
+}
+
+function closeM() {
+  document.getElementById('modal').classList.remove('open');
+  document.body.style.overflow = '';
+  if (lastFocus) lastFocus.focus();
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeM(); });
+
+/* ─── IntersectionObserver fade-up ───
+   Animates only opacity + transform (GPU safe — epic-design rule).
+   Stagger siblings within timeline and speaker grid.
+   Removes will-change after transition to free GPU memory.
+*/
+const rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+if (rm) {
+  document.querySelectorAll('.fu').forEach(el => el.classList.add('vis'));
+} else {
+  document.querySelectorAll('.tl > *, .sg > *').forEach((el, i) => {
+    if (el.classList.contains('fu')) el.style.transitionDelay = (i * 50) + 'ms';
+  });
+
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('vis');
+      io.unobserve(entry.target);
+      entry.target.addEventListener('transitionend', () => {
+        entry.target.style.willChange = 'auto';
+        entry.target.style.transitionDelay = '0ms';
+      }, { once: true });
+    });
+  }, { threshold: 0.07, rootMargin: '0px 0px -30px 0px' });
+
+  document.querySelectorAll('.fu').forEach(el => io.observe(el));
+}
+
+/* ─── Mobile: freeze glow animations on touch devices ─── */
+if (window.matchMedia('(pointer: coarse)').matches) {
+  document.querySelectorAll('.h-ga,.h-gb').forEach(el => el.style.animation = 'none');
+}
+</script>
+</body>
+</html>
