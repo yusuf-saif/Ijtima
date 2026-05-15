@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MC Guide — Symposium Group 2 — Abuja Ijtimah 1447 AH</title>
+<meta name="description" content="MC Script & Speaker Introduction Guide — Symposium Group 2, TIM Abuja Ijtimah 1447 AH. Internal document.">
+<meta name="robots" content="noindex,nofollow">
+
+<!-- Anti-FOUC: apply saved/preferred theme before first paint -->
+<script>(function(){
+  var t=localStorage.getItem('mc-theme')||
+    (window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
+  if(t==='light')document.documentElement.setAttribute('data-theme','light');
+})();</script>
+
+<style>
+/* ═══════════════════════════════════════════════════════
+   BRAND TOKENS
+═══════════════════════════════════════════════════════ */
+:root{
+  --g950:#0a1810; --g900:#0e2016; --g800:#193825;
+  --g700:#1e4d33; --g600:#276644; --g500:#3a8058;
+  --g300:#6db68a; --g100:#eaf4ee;
+  --au700:#8a6b0c; --au600:#a07d0f; --au500:#c9a227;
+  --au400:#d9b63a; --au300:#e8cc6a; --au100:#fdf8e5;
+  --cream:#f4f2ed; --white:#ffffff; --ink:#18231a;
+  --ink70:#3f504a; --ink40:#7b918b;
+  --ease:cubic-bezier(.4,0,.2,1);
+  --ease-spring:cubic-bezier(.34,1.56,.64,1);
+}
+
+/* ═══════════════════════════════════════════════════════
+   SEMANTIC TOKENS — dark default
+═══════════════════════════════════════════════════════ */
+:root{
+  --c-bg:         var(--g950);
+  --c-nav:        rgba(10,24,16,.92);
+  --c-page:       rgba(255,255,255,.03);
+  --c-says:       rgba(255,255,255,.055);
+  --c-says-b:     rgba(201,162,39,.55);
+  --c-context:    rgba(255,255,255,.03);
+  --c-context-b:  rgba(255,255,255,.16);
+  --c-divider:    rgba(255,255,255,.08);
+  --c-text:       var(--cream);
+  --c-text-dim:   var(--ink40);
+  --c-text-hi:    var(--white);
+  --c-gold:       var(--au300);
+  --c-cue:        var(--au500);
+  --c-pause:      var(--au400);
+  --c-num:        var(--au400);
+}
+
+/* ═══════════════════════════════════════════════════════
+   LIGHT THEME OVERRIDES
+═══════════════════════════════════════════════════════ */
+[data-theme="light"]{
+  --c-bg:         #f0ede6;
+  --c-nav:        rgba(240,237,230,.93);
+  --c-page:       rgba(255,255,255,.70);
+  --c-says:       rgba(255,255,255,.95);
+  --c-says-b:     rgba(139,107,12,.65);
+  --c-context:    rgba(0,0,0,.04);
+  --c-context-b:  rgba(0,0,0,.20);
+  --c-divider:    rgba(0,0,0,.10);
+  --c-text:       var(--ink);
+  --c-text-dim:   var(--ink70);
+  --c-text-hi:    var(--ink);
+  --c-gold:       var(--au700);
+  --c-cue:        var(--au600);
+  --c-pause:      var(--au700);
+  --c-num:        var(--au700);
+}
+
+/* ═══════════════════════════════════════════════════════
+   RESET
+═══════════════════════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  background:var(--c-bg);color:var(--c-text);
+  line-height:1.75;overflow-x:hidden;
+  transition:background-color .3s var(--ease),color .3s var(--ease);
+}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:none;background:none;padding:0}
+
+/* ═══════════════════════════════════════════════════════
+   REDUCED MOTION
+═══════════════════════════════════════════════════════ */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:.01ms!important;animation-iteration-count:1!important;
+    transition-duration:.01ms!important;scroll-behavior:auto!important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════
+   BACK NAV
+═══════════════════════════════════════════════════════ */
+.back-nav{
+  position:fixed;top:0;left:0;right:0;z-index:900;height:46px;
+  background:var(--c-nav);
+  border-bottom:1px solid rgba(201,162,39,.14);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  display:flex;align-items:center;padding:0 20px;
+  transition:background .3s var(--ease);
+}
+.back-link{
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:.73rem;font-weight:700;letter-spacing:.04em;
+  color:var(--au300);
+  transition:color .3s var(--ease),transform .3s var(--ease-spring);
+}
+.back-link:hover{color:var(--au400);transform:translateX(-3px)}
+.back-link:focus-visible{outline:2px solid var(--au500);outline-offset:3px;border-radius:4px}
+.back-link svg{width:16px;height:16px;flex-shrink:0}
+.nav-badge{
+  margin-left:12px;padding:2px 9px;border-radius:20px;
+  font-size:.58rem;font-weight:700;letter-spacing:.10em;text-transform:uppercase;
+  background:rgba(201,162,39,.12);border:1px solid rgba(201,162,39,.22);
+  color:var(--au300);
+}
+
+/* ═══════════════════════════════════════════════════════
+   THEME TOGGLE
+═══════════════════════════════════════════════════════ */
+.theme-toggle{
+  position:fixed;top:7px;right:16px;z-index:901;
+  width:32px;height:32px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(201,162,39,.14);border:1px solid rgba(201,162,39,.28);
+  color:var(--au400);
+  transition:background .25s var(--ease),transform .2s var(--ease-spring);
+}
+.theme-toggle:hover{transform:scale(1.12);background:rgba(201,162,39,.26)}
+.theme-toggle:focus-visible{outline:2px solid var(--au500);outline-offset:3px}
+.theme-toggle .t-sun,.theme-toggle .t-moon{
+  width:15px;height:15px;position:absolute;
+  transition:opacity .25s var(--ease),transform .3s var(--ease);
+}
+.theme-toggle .t-sun{opacity:1;transform:rotate(0deg) scale(1)}
+.theme-toggle .t-moon{opacity:0;transform:rotate(-90deg) scale(.65)}
+[data-theme="light"] .theme-toggle .t-sun{opacity:0;transform:rotate(90deg) scale(.65)}
+[data-theme="light"] .theme-toggle .t-moon{opacity:1;transform:rotate(0deg) scale(1)}
+
+/* ═══════════════════════════════════════════════════════
+   PAGE LAYOUT
+═══════════════════════════════════════════════════════ */
+.page{
+  max-width:760px;margin:0 auto;
+  padding:72px 20px 80px;
+}
+
+/* ═══════════════════════════════════════════════════════
+   PAGE HEADER
+═══════════════════════════════════════════════════════ */
+.page-hdr{
+  text-align:center;margin-bottom:48px;
+  padding-bottom:28px;
+  border-bottom:1px solid var(--c-divider);
+  transition:border-color .3s var(--ease);
+}
+.page-hdr-eyebrow{
+  font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--c-cue);margin-bottom:10px;
+  transition:color .3s var(--ease);
+}
+.page-hdr-title{
+  font-size:clamp(1.4rem,4vw,1.85rem);font-weight:800;
+  color:var(--c-text-hi);line-height:1.2;margin-bottom:8px;
+  transition:color .3s var(--ease);
+}
+.page-hdr-sub{
+  font-size:.88rem;line-height:1.7;
+  color:var(--c-text-dim);margin-bottom:18px;
+  transition:color .3s var(--ease);
+}
+.print-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:.72rem;font-weight:700;letter-spacing:.06em;
+  padding:7px 18px;border-radius:20px;
+  background:rgba(201,162,39,.12);border:1px solid rgba(201,162,39,.26);
+  color:var(--au300);
+  transition:background .25s var(--ease),transform .2s var(--ease-spring),color .3s var(--ease);
+}
+.print-btn:hover{background:rgba(201,162,39,.24);transform:scale(1.05)}
+.print-btn:focus-visible{outline:2px solid var(--au500);outline-offset:3px;border-radius:20px}
+.print-btn svg{width:14px;height:14px;flex-shrink:0}
+
+/* ═══════════════════════════════════════════════════════
+   SECTION CARD
+═══════════════════════════════════════════════════════ */
+.mc-section{
+  margin-bottom:24px;
+  background:var(--c-page);
+  border:1px solid var(--c-divider);
+  border-radius:16px;overflow:hidden;
+  transition:background .3s var(--ease),border-color .3s var(--ease);
+}
+.mc-section-hdr{
+  display:flex;align-items:center;gap:14px;
+  padding:16px 22px 14px;
+  border-bottom:1px solid var(--c-divider);
+  transition:border-color .3s var(--ease);
+}
+.mc-section-num{
+  font-size:1.6rem;font-weight:900;line-height:1;
+  color:var(--c-num);min-width:36px;
+  font-variant-numeric:tabular-nums;
+  transition:color .3s var(--ease);
+}
+.mc-section--break .mc-section-num{font-size:1.1rem;min-width:28px}
+.mc-section-meta{flex:1;min-width:0}
+.mc-section-label{
+  display:block;font-size:.58rem;font-weight:700;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--c-cue);margin-bottom:2px;
+  transition:color .3s var(--ease);
+}
+.mc-section-name{
+  font-size:.95rem;font-weight:700;color:var(--c-text-hi);line-height:1.25;
+  transition:color .3s var(--ease);
+}
+.mc-section-time{
+  font-size:.68rem;font-weight:700;color:var(--c-text-dim);
+  font-variant-numeric:tabular-nums;letter-spacing:.04em;white-space:nowrap;
+  transition:color .3s var(--ease);
+}
+.mc-section--break .mc-section-hdr{border-bottom:none}
+
+.mc-section-body{
+  padding:18px 22px 22px;
+  display:flex;flex-direction:column;gap:14px;
+}
+
+/* ═══════════════════════════════════════════════════════
+   MC CUE LINE
+═══════════════════════════════════════════════════════ */
+.mc-cue{
+  display:flex;align-items:center;gap:10px;
+  font-size:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--c-cue);margin-bottom:-4px;
+  transition:color .3s var(--ease);
+}
+.mc-cue::after{content:'';flex:1;height:1px;background:currentColor;opacity:.22}
+
+/* ═══════════════════════════════════════════════════════
+   CONTEXT NOTE
+═══════════════════════════════════════════════════════ */
+.mc-context{
+  background:var(--c-context);
+  border-left:3px solid var(--c-context-b);
+  border-radius:0 8px 8px 0;
+  padding:11px 15px;
+  font-size:.84rem;line-height:1.65;
+  color:var(--c-text-dim);font-style:italic;
+  transition:background .3s var(--ease),border-color .3s var(--ease),color .3s var(--ease);
+}
+.mc-context strong{font-style:normal;color:var(--c-text);transition:color .3s var(--ease)}
+
+/* ═══════════════════════════════════════════════════════
+   MC SAYS BLOCK
+═══════════════════════════════════════════════════════ */
+.mc-says{
+  background:var(--c-says);
+  border-left:4px solid var(--c-says-b);
+  border-radius:0 12px 12px 0;
+  padding:20px 22px;
+  font-size:clamp(1rem,2.5vw,1.075rem);
+  line-height:1.85;color:var(--c-text);
+  transition:background .3s var(--ease),border-color .3s var(--ease),color .3s var(--ease);
+}
+.mc-says p{margin-bottom:14px}
+.mc-says p:last-child{margin-bottom:0}
+.mc-topic{
+  font-style:italic;font-weight:700;
+  color:var(--c-gold);transition:color .3s var(--ease);
+}
+
+/* ═══════════════════════════════════════════════════════
+   PAUSE MARKER
+═══════════════════════════════════════════════════════ */
+.mc-pause{
+  text-align:center;padding:8px 0 4px;
+  font-size:.62rem;font-weight:700;letter-spacing:.26em;text-transform:uppercase;
+  color:var(--c-pause);opacity:.75;
+  transition:color .3s var(--ease);
+}
+.mc-pause::before{content:'· · · '}
+.mc-pause::after{content:' · · ·'}
+
+/* ═══════════════════════════════════════════════════════
+   SECTION DIVIDER
+═══════════════════════════════════════════════════════ */
+.mc-major-div{
+  display:flex;align-items:center;gap:14px;
+  margin:36px 0 24px;
+}
+.mc-major-div span{
+  font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--au500);white-space:nowrap;
+}
+.mc-major-div::before,.mc-major-div::after{
+  content:'';flex:1;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(201,162,39,.32),transparent);
+}
+
+/* ═══════════════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════════════ */
+@media(max-width:520px){
+  .page{padding:68px 14px 60px}
+  .mc-section-hdr{padding:14px 16px 12px}
+  .mc-section-body{padding:14px 16px 18px}
+  .mc-says{padding:16px 16px}
+  .mc-section-name{font-size:.88rem}
+}
+
+/* ═══════════════════════════════════════════════════════
+   PRINT STYLES
+═══════════════════════════════════════════════════════ */
+@media print{
+  .back-nav,.theme-toggle,.print-btn{display:none!important}
+  html,body{
+    background:#fff!important;color:#111!important;
+    font-size:12pt;line-height:1.6;
+  }
+  .page{max-width:100%;padding:16pt 0 0}
+  .page-hdr{border-bottom:2pt solid #ccc;margin-bottom:24pt}
+  .page-hdr-eyebrow{color:#8a6b0c!important}
+  .page-hdr-title{font-size:16pt;color:#111!important}
+  .page-hdr-sub{color:#555!important}
+  .mc-section{
+    background:#fff!important;border:1pt solid #ccc!important;
+    border-radius:6pt!important;margin-bottom:18pt;
+    page-break-inside:avoid;
+  }
+  .mc-section-hdr{border-bottom:1pt solid #ddd!important}
+  .mc-section-num,.mc-section-label,.mc-cue{color:#8a6b0c!important}
+  .mc-section-name{color:#111!important}
+  .mc-section-time,.mc-text-dim{color:#666!important}
+  .mc-context{
+    background:#f7f7f7!important;border-left-color:#999!important;
+    color:#444!important;
+  }
+  .mc-context strong{color:#111!important}
+  .mc-says{
+    background:#fffef8!important;border-left-color:#8a6b0c!important;
+    color:#111!important;font-size:13pt;line-height:1.8;
+  }
+  .mc-topic{color:#8a6b0c!important}
+  .mc-pause{color:#8a6b0c!important;opacity:1}
+  .mc-major-div span{color:#8a6b0c!important}
+  .mc-major-div::before,.mc-major-div::after{background:#ccc!important}
+}
+</style>
+</head>
+<body>
+
+<!-- Back nav -->
+<nav class="back-nav" aria-label="Page navigation">
+  <a href="symposium.html" class="back-link" aria-label="Back to Symposium Group 2 page">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+         stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <polyline points="15 18 9 12 15 6"/>
+    </svg>
+    Back to Symposium
+  </a>
+  <span class="nav-badge">MC Guide</span>
+</nav>
+
+<!-- Theme toggle -->
+<button class="theme-toggle" id="theme-toggle" aria-label="Switch to light mode">
+  <svg class="t-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+       stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <circle cx="12" cy="12" r="5"/>
+    <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+    <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+  </svg>
+  <svg class="t-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+       stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+  </svg>
+</button>
+
+<main class="page">
+
+  <!-- ── PAGE HEADER ── -->
+  <header class="page-hdr">
+    <p class="page-hdr-eyebrow">Internal Document — MC Use Only</p>
+    <h1 class="page-hdr-title">MC Script &amp; Speaker Introduction Guide</h1>
+    <p class="page-hdr-sub">
+      Symposium Group 2 — Decoding the Future: Tech Trends &amp; the 21st Century Khilāfah<br>
+      TIM 3rd Ijtimāʿ, 1447 AH &nbsp;·&nbsp; Saturday 16 May 2026 &nbsp;·&nbsp; 10:00 AM
+    </p>
+    <button class="print-btn" onclick="window.print()" aria-label="Print this guide">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polyline points="6 9 6 2 18 2 18 9"/>
+        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+        <rect x="6" y="14" width="12" height="8"/>
+      </svg>
+      Print Guide
+    </button>
+  </header>
+
+
+  <!-- ══════════════════════════════════════
+       SECTION 01 — OPENING
+  ══════════════════════════════════════ -->
+  <section class="mc-section" aria-label="Section 1: Opening">
+    <div class="mc-section-hdr">
+      <span class="mc-section-num" aria-hidden="true">01</span>
+      <div class="mc-section-meta">
+        <span class="mc-section-label">Opening</span>
+        <span class="mc-section-name">Welcome &amp; Session Opening</span>
+      </div>
+      <span class="mc-section-time">10:00</span>
+    </div>
+    <div class="mc-section-body">
+      <p class="mc-cue">MC CUE — Start of session</p>
+      <div class="mc-says">
+        <p>"Bismillahir-Rahmanir-Raheem.<br>
+        As-salāmu ʿalaykum wa rahmatullāhi wa barakātuh.</p>
+        <p>Welcome to Symposium Group 2 of the TIM 3rd Ijtimāʿ, 1447 AH.</p>
+        <p>Today, we gather not simply to discuss technology — but to ask a deeper question: What kind of future are we building, and for whom are we building it?</p>
+        <p>Our theme this year — <em>Beyond Personal Success: Raising Purposeful Professionals and Building a Model Ummah</em> — calls each of us to look beyond ourselves.</p>
+        <p>And our symposium topic — <em>Decoding the Future: Tech Trends and the 21st Century Khilāfah</em> — challenges us to think as builders, as stewards, and as Muslims who understand that we will be held accountable for what we do, and what we fail to do, in this digital age.</p>
+        <div class="mc-pause" aria-label="Pause">PAUSE</div>
+        <p>We have with us today five remarkable speakers — thinkers, builders, and practitioners — who will each bring a piece of that larger picture into focus.</p>
+        <p>I am honoured to be your host for this session. Let us begin."</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       SECTION 02 — INTRODUCE MODERATOR
+  ══════════════════════════════════════ -->
+  <section class="mc-section" aria-label="Section 2: Introduce Moderator">
+    <div class="mc-section-hdr">
+      <span class="mc-section-num" aria-hidden="true">02</span>
+      <div class="mc-section-meta">
+        <span class="mc-section-label">Handover</span>
+        <span class="mc-section-name">Introduce Moderator — Mall. Adam Yusuf</span>
+      </div>
+      <span class="mc-section-time">10:05</span>
+    </div>
+    <div class="mc-section-body">
+      <p class="mc-cue">MC CUE — After opening, hand over to moderator</p>
+      <div class="mc-says">
+        <p>"To frame our discussion and guide us through the session, I'd like to invite our moderator — a scholar and community leader who needs little introduction in TIM circles —</p>
+        <p>Please welcome Mall. Adam Yusuf."</p>
+        <div class="mc-pause" aria-label="Pause">PAUSE — lead applause</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       SECTION 03 — QURANIC RECITATION
+  ══════════════════════════════════════ -->
+  <section class="mc-section" aria-label="Section 3: Quranic Recitation">
+    <div class="mc-section-hdr">
+      <span class="mc-section-num" aria-hidden="true">03</span>
+      <div class="mc-section-meta">
+        <span class="mc-section-label">Opening</span>
+        <span class="mc-section-name">Quranic Recitation &amp; Opening Remarks</span>
+      </div>
+      <span class="mc-section-time">10:15</span>
+    </div>
+    <div class="mc-section-body">
+      <div class="mc-context">
+        <strong>Context:</strong> Moderator leads this segment — Quranic recitation followed by framing remarks. MC stands by and resumes after the moderator concludes.
+      </div>
+      <p class="mc-cue">MC CUE — After moderator finishes opening remarks</p>
+      <div class="mc-says">
+        <p>"JazākAllāhu khayran, Mall. Adam.</p>
+        <p>With that, let us move into our first presentation."</p>
+      </div>
+    </div>
+  </section>
+
+
+  <div class="mc-major-div" aria-hidden="true"><span>Speaker Presentations</span></div>
+
+
+  <!-- ══════════════════════════════════════
+       SECTION 04 — SPEAKER 1
+  ══════════════════════════════════════ -->
+  <section class="mc-section" aria-label="Section 4: Speaker 1 — Fauziya Mohammed">
+    <div class="mc-section-hdr">
+      <span class="mc-section-num" aria-hidden="true">04</span>
+      <div class="mc-section-meta">
+        <span class="mc-section-label">Speaker 1 — Physical</span>
+        <span class="mc-section-name">Fauziya Mohammed (Ziya)</span>
+      </div>
+      <span class="mc-section-time">10:30</span>
+    </div>
+    <div class="mc-section-body">
+      <div class="mc-context">
+        <strong>Context:</strong> Fauziya is presenting in person. Designer and social innovator — her talk connects design thinking and digital skills to wealth-building for Muslim professionals. Warm and community-driven.
+      </div>
+      <p class="mc-cue">MC CUE — Before Speaker 1 takes the floor</p>
+      <div class="mc-says">
+        <p>"Our first speaker today has spent over eight years at the intersection of design, technology, and social change — and she has made it her life's work to ensure that the tools of the digital economy serve real people, not just profit margins.</p>
+        <p>She is an Experience Design Manager at Ashoka Changemakers, where she leads initiatives that foster social innovation and empower changemakers across the world.</p>
+        <p>She has worked with organisations including Outsource Global, WriteTech Hub, and She Code Africa — where she served as Lead Designer, championing women in technology across Africa.</p>
+        <p>Beyond her professional work, she is an Ambassador for Women Techmakers Lokoja, Design Lead at Accessibility Nigeria, Design Lead at GDG Lokoja, and a Design Mentor at 3MTT.</p>
+        <p>She is here today to ask us: in a rapidly shifting digital economy, how can Muslim professionals build lasting wealth — not only for themselves, but for their communities?</p>
+        <p>Please put your hands together and welcome — Fauziya Mohammed, popularly known as Ziya — speaking on:</p>
+        <p class="mc-topic">'Building Wealth in the New Age of Technology.'"</p>
+        <div class="mc-pause" aria-label="Pause">PAUSE — lead applause</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       SECTION 05 — BREAK
+  ══════════════════════════════════════ -->
+  <section class="mc-section mc-section--break" aria-label="Section 5: Break after Speaker 1">
+    <div class="mc-section-hdr">
+      <span class="mc-section-num" aria-hidden="true">05</span>
+      <div class="mc-section-meta">
+        <span class="mc-section-label">Break</span>
+        <span class="mc-section-name">5-Minute Break — After Speaker 1</span>
+      </div>
+      <span class="mc-section-time">~10:50</span>
+    </div>
+    <div class="mc-section-body">
+      <p class="mc-cue">MC CUE — Speaker 1 finishes</p>
+      <div class="mc-says">
+        <p>"JazākAllāhu khayran, Ziya. That was both grounding and inspiring.</p>
+        <p>We will take a five-minute break before our next speaker. Please remain seated — we will resume shortly."</p>
+        <div class="mc-pause" aria-label="Pause">PAUSE — 5 minutes</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       SECTION 06 — SPEAKER 2
+  ══════════════════════════════════════ -->
+  <section class="mc-section" aria-label="Section 6: Speaker 2 — Abdulsamii Ajala">
+    <div class="mc-section-hdr">
+      <span class="mc-section-num" aria-hidden="true">06</span>
+      <div class="mc-section-meta">
+        <span class="mc-section-label">Speaker 2 — Virtual</span>
+        <span class="mc-section-name">Abdulsamii Ajala</span>
+      </div>
+      <span class="mc-section-time">10:55</span>
+    </div>
+    <div class="mc-section-body">
+      <div class="mc-context">
+        <strong>Context:</strong> Abdulsamii is joining virtually. <strong>Confirm AV/stream is live before beginning the introduction.</strong> Senior fullstack engineer and technology consultant.
+      </div>
+      <p class="mc-cue">MC CUE — Before Speaker 2 (joining virtually)</p>
+      <div class="mc-says">
+        <p>"Welcome back.</p>
+        <p>Our next speaker is joining us virtually today — and we are grateful that technology makes it possible for us to benefit from his insight across the distance.</p>
+        <p>He is a Senior Fullstack Engineer and technology consultant with expertise in scalable software systems, AI integration, and digital product architecture. He has worked with international teams and contributed to developer talent evaluation at Andela. His work spans AI-first systems, automation, fintech, agritech, and building practical digital solutions for emerging markets.</p>
+        <p>Please welcome — joining us virtually — Abdulsamii Ajala — speaking on:</p>
+        <p class="mc-topic">'[UPDATE — INSERT TOPIC TITLE]'"</p>
+        <div class="mc-pause" aria-label="Pause">PAUSE — lead applause / confirm virtual stream</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       SECTION 07 — BREAK
+  ══════════════════════════════════════ -->
+  <section class="mc-section mc-section--break" aria-label="Section 7: Break after Speaker 2">
+    <div class="mc-section-hdr">
+      <span class="mc-section-num" aria-hidden="true">07</span>
+      <div class="mc-section-meta">
+        <span class="mc-section-label">Break</span>
+        <span class="mc-section-name">5-Minute Break — After Speaker 2</span>
+      </div>
+      <span class="mc-section-time">~11:15</span>
+    </div>
+    <div class="mc-section-body">
+      <p class="mc-cue">MC CUE — Speaker 2 finishes</p>
+      <div class="mc-says">
+        <p>"JazākAllāhu khayran. We are grateful to have had Abdulsamii with us across the miles.</p>
+        <p>Five minutes, and we will be back for our next speaker."</p>
+        <div class="mc-pause" aria-label="Pause">PAUSE — 5 minutes</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       SECTION 08 — SPEAKER 3
+  ══════════════════════════════════════ -->
+  <section class="mc-section" aria-label="Section 8: Speaker 3 — Abdulqahar Aminu Jatto">
+    <div class="mc-section-hdr">
+      <span class="mc-section-num" aria-hidden="true">08</span>
+      <div class="mc-section-meta">
+        <span class="mc-section-label">Speaker 3 — Virtual (Canada)</span>
+        <span class="mc-section-name">Abdulqahar Aminu Jatto</span>
+      </div>
+      <span class="mc-section-time">11:20</span>
+    </div>
+    <div class="mc-section-body">
+      <div class="mc-context">
+        <strong>Context:</strong> Jatto is joining virtually from Waterloo, Canada. Senior software engineer with deep systems thinking. His talk frames technology as both amānah and i'dād. <strong>Confirm virtual connection is stable before beginning the introduction.</strong>
+      </div>
+      <p class="mc-cue">MC CUE — Before Speaker 3 (joining virtually from Canada)</p>
+      <div class="mc-says">
+        <p>"Our next speaker is also joining us virtually — all the way from Waterloo, Canada.</p>
+        <p>He is a Senior Software Engineer at Minerva, where he builds backend and applied-AI infrastructure for the financial regulations space. He also leads the development of Infergo — an open-source inference engine at Pergamon Labs.</p>
+        <p>With more than a decade of experience turning product ideas into real software, he thinks in systems — boundaries, contracts, observability, and the people responsible for operating those systems long after they ship.</p>
+        <p>He also runs JITS — Jatto IT Solutions Inc. — through which he ships products including TrustKarry and Pinnr. He has mentored across the African tech ecosystem through freeCodeCamp, Django Girls, and TeenCode at Andela, and he writes and speaks on practical engineering, AI-assisted workflows, and building digital infrastructure for the Muslim Ummah.</p>
+        <p>Today, he brings that builder's lens to one of the deepest questions we face as a community: What kind of digital architecture should the Muslim Ummah build for itself — and on whose values?</p>
+        <p>Please welcome — joining us from Waterloo, Canada — Abdulqahar Aminu Jatto — speaking on:</p>
+        <p class="mc-topic">'From Internet of Things to Internet of Values — The Architecture of a Value-Driven Digital Future.'"</p>
+        <div class="mc-pause" aria-label="Pause">PAUSE — lead applause</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       SECTION 09 — BREAK
+  ══════════════════════════════════════ -->
+  <section class="mc-section mc-section--break" aria-label="Section 9: Break after Speaker 3">
+    <div class="mc-section-hdr">
+      <span class="mc-section-num" aria-hidden="true">09</span>
+      <div class="mc-section-meta">
+        <span class="mc-section-label">Break</span>
+        <span class="mc-section-name">5-Minute Break — After Speaker 3</span>
+      </div>
+      <span class="mc-section-time">~11:40</span>
+    </div>
+    <div class="mc-section-body">
+      <p class="mc-cue">MC CUE — Speaker 3 finishes</p>
+      <div class="mc-says">
+        <p>"MāshāAllāh. JazākAllāhu khayran, Jatto — and thank you for joining us all the way from Canada.</p>
+        <p>Five minutes, and we continue."</p>
+        <div class="mc-pause" aria-label="Pause">PAUSE — 5 minutes</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       SECTION 10 — SPEAKER 4
+  ══════════════════════════════════════ -->
+  <section class="mc-section" aria-label="Section 10: Speaker 4 — Abdulhayyi Yusuf">
+    <div class="mc-section-hdr">
+      <span class="mc-section-num" aria-hidden="true">10</span>
+      <div class="mc-section-meta">
+        <span class="mc-section-label">Speaker 4 — Physical</span>
+        <span class="mc-section-name">Abdulhayyi Yusuf</span>
+      </div>
+      <span class="mc-section-time">11:45</span>
+    </div>
+    <div class="mc-section-body">
+      <div class="mc-context">
+        <strong>Context:</strong> Abdulhayyi is presenting in person. Mechatronics background, blockchain developer and community builder. His talk examines blockchain as trust infrastructure through Islamic ethical principles — not speculation.
+      </div>
+      <p class="mc-cue">MC CUE — Before Speaker 4</p>
+      <div class="mc-says">
+        <p>"Our next speaker is with us in the room today.</p>
+        <p>He is a blockchain developer, builder, and community steward passionate about leveraging emerging technologies to solve real-world problems across Africa. He holds a background in Mechatronics Engineering and serves as Steward of the Logos Abuja Circle — a chapter of Logos, a privacy-default blockchain network building infrastructure for decentralised communities and digital sovereignty.</p>
+        <p>His work spans blockchain infrastructure, real-world asset tokenization, agritech innovation, and community-driven digital products. He is co-founding Prova — an onchain trade credit insurance platform for African markets — with projects including NestBlock and AgriYield.</p>
+        <p>He is here today to show us that blockchain is not a vehicle for speculation — but a trust infrastructure for justice and economic empowerment, deeply aligned with the principles of our dīn.</p>
+        <p>Please welcome — Abdulhayyi Yusuf — speaking on:</p>
+        <p class="mc-topic">'Blockchain and the Internet of Values — Decentralizing Trust for Justice and Transparency.'"</p>
+        <div class="mc-pause" aria-label="Pause">PAUSE — lead applause</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       SECTION 11 — BREAK
+  ══════════════════════════════════════ -->
+  <section class="mc-section mc-section--break" aria-label="Section 11: Break after Speaker 4">
+    <div class="mc-section-hdr">
+      <span class="mc-section-num" aria-hidden="true">11</span>
+      <div class="mc-section-meta">
+        <span class="mc-section-label">Break</span>
+        <span class="mc-section-name">5-Minute Break — After Speaker 4</span>
+      </div>
+      <span class="mc-section-time">~12:05</span>
+    </div>
+    <div class="mc-section-body">
+      <p class="mc-cue">MC CUE — Speaker 4 finishes</p>
+      <div class="mc-says">
+        <p>"JazākAllāhu khayran, Abdulhayyi. A powerful perspective.</p>
+        <p>One final break before our fifth and last speaker — five minutes."</p>
+        <div class="mc-pause" aria-label="Pause">PAUSE — 5 minutes</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       SECTION 12 — SPEAKER 5
+  ══════════════════════════════════════ -->
+  <section class="mc-section" aria-label="Section 12: Speaker 5 — S. A Yusuf">
+    <div class="mc-section-hdr">
+      <span class="mc-section-num" aria-hidden="true">12</span>
+      <div class="mc-section-meta">
+        <span class="mc-section-label">Speaker 5 — Physical</span>
+        <span class="mc-section-name">S. A Yusuf</span>
+      </div>
+      <span class="mc-section-time">12:10</span>
+    </div>
+    <div class="mc-section-body">
+      <div class="mc-context">
+        <strong>Context:</strong> S. A Yusuf is presenting in person. Senior Technical Product Manager and developer. His talk is reflective and practical — aimed at Muslim youth, on finding voice and purpose beyond personal success.
+      </div>
+      <p class="mc-cue">MC CUE — Before Speaker 5</p>
+      <div class="mc-says">
+        <p>"And our fifth and final speaker of the day is also with us here in the room.</p>
+        <p>He is a Senior Technical Product Manager, part-time developer, and technology systems reviewer with a strong passion for building practical, secure, and human-centred digital solutions. He leads the product team at Visionary Insights and has been involved in founding and supporting several initiatives focused on technology, community growth, and purposeful impact.</p>
+        <p>With experience across GovTech, identity infrastructure, e-commerce, accessibility, and digital product development, he brings a unique mix of product thinking, technical depth, and real-world execution — having worked on solutions that support government systems, businesses, and communities.</p>
+        <p>He has a keen interest in system security and is currently exploring financial systems, security architecture, and the future of trusted digital infrastructure.</p>
+        <p>For this session, he brings a relatable and practical perspective on how Muslim youth can find their voice — not for personal acclaim, but for purposeful contribution to something greater than themselves.</p>
+        <p>Please welcome — S. A Yusuf — speaking on:</p>
+        <p class="mc-topic">'Finding Your Unique Voice: Beyond Personal Success.'"</p>
+        <div class="mc-pause" aria-label="Pause">PAUSE — lead applause</div>
+      </div>
+    </div>
+  </section>
+
+
+  <div class="mc-major-div" aria-hidden="true"><span>Interactive &amp; Panel</span></div>
+
+
+  <!-- ══════════════════════════════════════
+       SECTION 13 — GAMES
+  ══════════════════════════════════════ -->
+  <section class="mc-section" aria-label="Section 13: Games and Activity Time">
+    <div class="mc-section-hdr">
+      <span class="mc-section-num" aria-hidden="true">13</span>
+      <div class="mc-section-meta">
+        <span class="mc-section-label">Interactive</span>
+        <span class="mc-section-name">Games &amp; Activity Time</span>
+      </div>
+      <span class="mc-section-time">12:20</span>
+    </div>
+    <div class="mc-section-body">
+      <div class="mc-context">
+        <strong>Context:</strong> Energiser activities and group challenges. <strong>Coordinate with facilitators before this segment</strong> — confirm activities are ready and facilitators are in position.
+      </div>
+      <p class="mc-cue">MC CUE — After Speaker 5 finishes</p>
+      <div class="mc-says">
+        <p>"JazākAllāhu khayran. MāshāAllāh — five exceptional perspectives.</p>
+        <p>Before we bring all our speakers together for the panel, we have a short interactive segment — some energiser activities and group challenges to get us thinking together.</p>
+        <p>Please stay in your seats and get ready to participate — this one requires your full engagement."</p>
+        <div class="mc-pause" aria-label="Pause">PAUSE — coordinate with facilitators</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       SECTION 14 — PANEL SESSION
+  ══════════════════════════════════════ -->
+  <section class="mc-section" aria-label="Section 14: Panel Session">
+    <div class="mc-section-hdr">
+      <span class="mc-section-num" aria-hidden="true">14</span>
+      <div class="mc-section-meta">
+        <span class="mc-section-label">Panel Session</span>
+        <span class="mc-section-name">All Speakers + Moderator — Open Q&amp;A</span>
+      </div>
+      <span class="mc-section-time">12:35</span>
+    </div>
+    <div class="mc-section-body">
+      <div class="mc-context">
+        <strong>Context:</strong> All five speakers and the moderator come together for open Q&amp;A and discussion. Hand over to Mall. Adam Yusuf to moderate. Ensure virtual speakers (Abdulsamii and Jatto) remain connected.
+      </div>
+      <p class="mc-cue">MC CUE — Opening the panel</p>
+      <div class="mc-says">
+        <p>"Now for the part of the session many of you have been looking forward to — the open Q&amp;A and panel discussion.</p>
+        <p>Our five speakers and our moderator will now come together — and we would like to open the floor for your questions, reflections, and ideas.</p>
+        <div class="mc-pause" aria-label="Pause">PAUSE</div>
+        <p>If you have a question for the panel, please raise your hand and the moderator will bring the microphone to you.</p>
+        <p>Mall. Adam Yusuf — over to you."</p>
+        <div class="mc-pause" aria-label="Pause">PAUSE — hand over to moderator</div>
+      </div>
+    </div>
+  </section>
+
+
+  <div class="mc-major-div" aria-hidden="true"><span>Closing</span></div>
+
+
+  <!-- ══════════════════════════════════════
+       SECTION 15 — CLOSING
+  ══════════════════════════════════════ -->
+  <section class="mc-section" aria-label="Section 15: Closing Remarks and Du'a">
+    <div class="mc-section-hdr">
+      <span class="mc-section-num" aria-hidden="true">15</span>
+      <div class="mc-section-meta">
+        <span class="mc-section-label">Closing</span>
+        <span class="mc-section-name">Closing Remarks &amp; Du'ā</span>
+      </div>
+      <span class="mc-section-time">12:40</span>
+    </div>
+    <div class="mc-section-body">
+      <div class="mc-context">
+        <strong>Context:</strong> Moderator leads the closing du'ā. MC delivers final words of gratitude first, then hands over to Mall. Adam Yusuf for du'ā.
+      </div>
+      <p class="mc-cue">MC CUE — After panel concludes, before closing du'ā</p>
+      <div class="mc-says">
+        <p>"On behalf of TIM Abuja Daira, I would like to extend our deepest gratitude to each of our speakers today —</p>
+        <p>Fauziya Mohammed, Abdulsamii Ajala, Abdulqahar Aminu Jatto, Abdulhayyi Yusuf, and S. A Yusuf —</p>
+        <p>and to our moderator, Mall. Adam Yusuf — for your time, your knowledge, and your commitment to this community.</p>
+        <div class="mc-pause" aria-label="Pause">PAUSE</div>
+        <p>Technology is not neutral. What we build reflects what we believe. And what we believe — as Muslims — places a responsibility on each of us.</p>
+        <p>We hope today's session has left you with not just information, but intention.</p>
+        <div class="mc-pause" aria-label="Pause">PAUSE</div>
+        <p>We will now close with du'ā. Mall. Adam — please lead us."</p>
+        <div class="mc-pause" aria-label="Pause">PAUSE — moderator leads du'ā</div>
+      </div>
+      <p class="mc-cue">MC CUE — After closing du'ā</p>
+      <div class="mc-says">
+        <p>"Was-salāmu ʿalaykum wa rahmatullāhi wa barakātuh."</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script>
+(function(){
+  var root=document.documentElement, btn=document.getElementById('theme-toggle');
+  function getTheme(){return root.getAttribute('data-theme')==='light'?'light':'dark'}
+  function applyLabel(t){
+    btn.setAttribute('aria-label',t==='light'?'Switch to dark mode':'Switch to light mode');
+  }
+  applyLabel(getTheme());
+  btn.addEventListener('click',function(){
+    var next=getTheme()==='light'?'dark':'light';
+    if(next==='light'){root.setAttribute('data-theme','light')}
+    else{root.removeAttribute('data-theme')}
+    localStorage.setItem('mc-theme',next);
+    applyLabel(next);
+  });
+})();
+</script>
+
+</body>
+</html>
