@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Symposium Group 2 — Abuja Ijtimah 1447 AH</title>
+<meta name="description" content="TIM 3rd Ijtimah 1447 AH — Symposium Group 2: Decoding the Future. Tech Trends & the 21st Century Khilafah. Saturday 16 May 2026.">
+
+<!-- Anti-FOUC: apply saved/preferred theme before first paint -->
+<script>(function(){
+  var t=localStorage.getItem('sym-theme')||
+    (window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
+  if(t==='light')document.documentElement.setAttribute('data-theme','light');
+})();</script>
+
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   BRAND TOKENS — never change between themes
+═══════════════════════════════════════════════════════════════ */
+:root{
+  /* greens */
+  --g950:#0a1810; --g900:#0e2016; --g800:#193825;
+  --g700:#1e4d33; --g600:#276644; --g500:#3a8058;
+  --g300:#6db68a; --g100:#eaf4ee;
+  /* golds */
+  --au700:#8a6b0c; --au600:#a07d0f; --au500:#c9a227;
+  --au400:#d9b63a; --au300:#e8cc6a; --au100:#fdf8e5;
+  /* neutrals */
+  --cream:#f4f2ed; --white:#ffffff; --ink:#18231a;
+  --ink70:#3f504a; --ink40:#7b918b;
+  /* motion */
+  --ease:cubic-bezier(.4,0,.2,1);
+  --ease-spring:cubic-bezier(.34,1.56,.64,1);
+  --dur:.3s;
+  /* radii */
+  --r-sm:6px; --r-md:12px; --r-lg:20px; --r-xl:28px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SEMANTIC THEME TOKENS — dark (default)
+═══════════════════════════════════════════════════════════════ */
+:root{
+  --c-bg:          var(--g950);
+  --c-modal:       var(--g900);
+  --c-nav:         rgba(10,24,16,.92);
+  /* surfaces */
+  --c-s1:          rgba(255,255,255,.055);
+  --c-s1-hover:    rgba(255,255,255,.085);
+  --c-s2:          rgba(255,255,255,.03);
+  /* borders */
+  --c-b1:          rgba(255,255,255,.08);
+  --c-b1-hover:    rgba(255,255,255,.14);
+  --c-b2:          rgba(255,255,255,.07);
+  --c-b3:          rgba(255,255,255,.10);
+  /* text */
+  --c-text:        var(--cream);
+  --c-text-dim:    var(--ink40);
+  --c-text-hi:     var(--white);
+  /* overlay */
+  --c-overlay:     rgba(0,0,0,.70);
+  --c-handle:      rgba(255,255,255,.18);
+  /* prayer items */
+  --c-prayer:      linear-gradient(90deg,rgba(14,32,22,.70),rgba(25,56,37,.45));
+  --c-prayer-h:    linear-gradient(90deg,rgba(14,32,22,.90),rgba(25,56,37,.65));
+  --c-prayer-b:    rgba(58,128,88,.22);
+  /* games */
+  --c-games:       linear-gradient(135deg,rgba(58,128,88,.18),rgba(25,56,37,.30));
+  --c-games-b:     rgba(58,128,88,.28);
+  --c-games-glow:  radial-gradient(ellipse 60% 80% at 90% 50%,rgba(201,162,39,.08),transparent);
+  /* panel session */
+  --c-ps:          linear-gradient(135deg,rgba(201,162,39,.10),rgba(201,162,39,.05));
+  /* sim-wrap */
+  --c-sim:         rgba(255,255,255,.035);
+  --c-sim-b:       rgba(255,255,255,.07);
+  /* chip (hero chips stay dark always) */
+  --c-chip:        rgba(255,255,255,.07);
+  --c-chip-b:      rgba(255,255,255,.11);
+  --c-chip-text:   var(--g100);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   LIGHT THEME OVERRIDES
+═══════════════════════════════════════════════════════════════ */
+[data-theme="light"]{
+  --c-bg:          #f0ede6;
+  --c-modal:       #ffffff;
+  --c-nav:         rgba(240,237,230,.93);
+  --c-s1:          rgba(255,255,255,.90);
+  --c-s1-hover:    rgba(255,255,255,1);
+  --c-s2:          rgba(0,0,0,.025);
+  --c-b1:          rgba(0,0,0,.10);
+  --c-b1-hover:    rgba(0,0,0,.20);
+  --c-b2:          rgba(0,0,0,.08);
+  --c-b3:          rgba(0,0,0,.13);
+  --c-text:        var(--ink);
+  --c-text-dim:    var(--ink70);
+  --c-text-hi:     var(--ink);
+  --c-overlay:     rgba(0,0,0,.50);
+  --c-handle:      rgba(0,0,0,.15);
+  --c-prayer:      linear-gradient(90deg,rgba(25,56,37,.07),rgba(58,128,88,.05));
+  --c-prayer-h:    linear-gradient(90deg,rgba(25,56,37,.12),rgba(58,128,88,.09));
+  --c-prayer-b:    rgba(58,128,88,.28);
+  --c-games:       linear-gradient(135deg,rgba(58,128,88,.10),rgba(25,56,37,.07));
+  --c-games-b:     rgba(58,128,88,.28);
+  --c-games-glow:  radial-gradient(ellipse 60% 80% at 90% 50%,rgba(201,162,39,.06),transparent);
+  --c-ps:          linear-gradient(135deg,rgba(201,162,39,.09),rgba(201,162,39,.04));
+  --c-sim:         rgba(0,0,0,.03);
+  --c-sim-b:       rgba(0,0,0,.09);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   RESET
+═══════════════════════════════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  background:var(--c-bg);color:var(--c-text);
+  line-height:1.6;overflow-x:hidden;
+  transition:background-color .3s var(--ease),color .3s var(--ease);
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:none;background:none;padding:0}
+
+/* ═══════════════════════════════════════════════════════════════
+   REDUCED MOTION
+═══════════════════════════════════════════════════════════════ */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:.01ms!important;animation-iteration-count:1!important;
+    transition-duration:.01ms!important;scroll-behavior:auto!important;
+  }
+  .fu{opacity:1!important;transform:none!important}
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FADE-UP
+═══════════════════════════════════════════════════════════════ */
+.fu{opacity:0;transform:translateY(24px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.fu.vis{opacity:1;transform:translateY(0)}
+
+/* ═══════════════════════════════════════════════════════════════
+   BACK NAV
+═══════════════════════════════════════════════════════════════ */
+.back-nav{
+  position:fixed;top:0;left:0;right:0;z-index:900;height:46px;
+  background:var(--c-nav);
+  border-bottom:1px solid rgba(201,162,39,.14);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  display:flex;align-items:center;padding:0 20px;
+  transition:background-color .3s var(--ease);
+}
+.back-link{
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:.73rem;font-weight:700;letter-spacing:.04em;
+  color:var(--au300);
+  transition:color var(--dur) var(--ease),transform var(--dur) var(--ease-spring);
+}
+.back-link:hover{color:var(--au400);transform:translateX(-3px)}
+.back-link:focus-visible{outline:2px solid var(--au500);outline-offset:3px;border-radius:4px}
+.back-link svg{width:16px;height:16px;flex-shrink:0}
+
+/* ═══════════════════════════════════════════════════════════════
+   THEME TOGGLE
+═══════════════════════════════════════════════════════════════ */
+.theme-toggle{
+  position:fixed;top:7px;right:16px;z-index:901;
+  width:32px;height:32px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(201,162,39,.14);border:1px solid rgba(201,162,39,.28);
+  color:var(--au400);
+  transition:background .25s var(--ease),border-color .25s var(--ease),
+             transform .2s var(--ease-spring);
+}
+.theme-toggle:hover{transform:scale(1.12);background:rgba(201,162,39,.26)}
+.theme-toggle:focus-visible{outline:2px solid var(--au500);outline-offset:3px}
+/* icon cross-fade */
+.theme-toggle .t-sun,.theme-toggle .t-moon{
+  width:15px;height:15px;position:absolute;
+  transition:opacity .25s var(--ease),transform .3s var(--ease);
+}
+/* dark mode: show sun (click→go light), hide moon */
+.theme-toggle .t-sun{opacity:1;transform:rotate(0deg) scale(1)}
+.theme-toggle .t-moon{opacity:0;transform:rotate(-90deg) scale(.65)}
+/* light mode: show moon (click→go dark), hide sun */
+[data-theme="light"] .theme-toggle .t-sun{opacity:0;transform:rotate(90deg) scale(.65)}
+[data-theme="light"] .theme-toggle .t-moon{opacity:1;transform:rotate(0deg) scale(1)}
+
+/* ═══════════════════════════════════════════════════════════════
+   HERO — 5-layer epic-design (always dark — cinematic brand anchor)
+   depth-0 gradient · depth-1 glow · depth-2 tile
+   depth-3 frame · depth-4 Bismillah · depth-5 content
+═══════════════════════════════════════════════════════════════ */
+.hero{
+  position:relative;padding:130px 24px 80px;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;min-height:92svh;
+}
+/* depth-0 */
+.h-bg{
+  position:absolute;inset:0;z-index:0;
+  background:
+    radial-gradient(ellipse 130% 75% at 50% -5%,var(--g700) 0%,transparent 60%),
+    radial-gradient(ellipse 70% 55% at 85% 95%,var(--au700) 0%,transparent 55%),
+    linear-gradient(165deg,var(--g900) 0%,var(--g950) 100%);
+}
+/* depth-1 */
+.h-glow{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+.h-ga,.h-gb,.h-gc{
+  position:absolute;border-radius:50%;filter:blur(90px);
+  animation:gblob 15s ease-in-out infinite alternate;
+}
+.h-ga{width:580px;height:580px;top:-150px;left:-130px;opacity:.2;background:radial-gradient(circle,var(--g600),transparent 68%)}
+.h-gb{width:440px;height:440px;bottom:-70px;right:-90px;opacity:.18;background:radial-gradient(circle,var(--au700),transparent 68%);animation-delay:-9s;animation-duration:19s}
+.h-gc{width:280px;height:280px;top:45%;left:62%;opacity:.11;background:radial-gradient(circle,var(--g500),transparent 68%);animation-delay:-4s;animation-duration:11s}
+@keyframes gblob{from{transform:translate(0,0) scale(1)}to{transform:translate(34px,26px) scale(1.13)}}
+/* depth-2 */
+.h-tile{
+  position:absolute;inset:0;z-index:2;pointer-events:none;opacity:.036;
+  background-image:
+    repeating-linear-gradient(45deg,var(--au500) 0,var(--au500) 1px,transparent 0,transparent 50%),
+    repeating-linear-gradient(-45deg,var(--au500) 0,var(--au500) 1px,transparent 0,transparent 50%);
+  background-size:30px 30px;
+}
+/* depth-3 */
+.h-frame{position:absolute;inset:18px;z-index:3;pointer-events:none;border:1px solid rgba(201,162,39,.14);border-radius:var(--r-xl)}
+.h-frame::before,.h-frame::after,.h-fc-tr,.h-fc-bl{position:absolute;width:22px;height:22px;border-color:var(--au400);border-style:solid;opacity:.48}
+.h-frame::before{content:'';top:-1px;left:-1px;border-width:2px 0 0 2px;border-radius:var(--r-sm) 0 0 0}
+.h-frame::after{content:'';bottom:-1px;right:-1px;border-width:0 2px 2px 0;border-radius:0 0 var(--r-sm) 0}
+.h-fc-tr{top:-1px;right:-1px;border-width:2px 2px 0 0;border-radius:0 var(--r-sm) 0 0}
+.h-fc-bl{bottom:-1px;left:-1px;border-width:0 0 2px 2px;border-radius:0 0 0 var(--r-sm)}
+/* depth-4 */
+.h-bsm{position:absolute;top:58px;left:50%;transform:translateX(-50%);z-index:4;font-size:1.5rem;color:var(--au300);opacity:.36;pointer-events:none;white-space:nowrap;letter-spacing:.05em}
+/* depth-5 */
+.h-con{position:relative;z-index:5;text-align:center;max-width:740px;width:100%}
+.h-eyebrow{
+  display:inline-block;font-size:.64rem;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--au400);
+  background:rgba(201,162,39,.1);border:1px solid rgba(201,162,39,.24);
+  border-radius:40px;padding:5px 18px;margin-bottom:20px;
+}
+.h-pre{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:8px}
+.h-title{font-size:clamp(1.9rem,6vw,3.5rem);font-weight:800;line-height:1.1;color:var(--white);letter-spacing:-.025em;margin-bottom:10px}
+.h-title em{color:var(--au400);font-style:normal}
+.h-topic{font-size:clamp(.82rem,2.2vw,1.02rem);color:var(--g100);font-weight:600;opacity:.85;margin-bottom:24px;letter-spacing:.01em}
+.h-rule{width:56px;height:2px;margin:0 auto 24px;background:linear-gradient(90deg,transparent,var(--au500),transparent)}
+.h-synopsis{font-size:clamp(.78rem,1.8vw,.92rem);color:var(--cream);opacity:.75;line-height:1.7;max-width:580px;margin:0 auto 28px}
+.h-meta{display:flex;flex-wrap:wrap;justify-content:center;gap:9px;margin-bottom:20px}
+/* hero chips always use dark-mode palette (hero is always dark) */
+.h-chip{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:.73rem;font-weight:600;color:var(--g100);
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.11);
+  border-radius:40px;padding:5px 13px;
+}
+.h-chip svg{width:13px;height:13px;opacity:.65;flex-shrink:0}
+.h-chip--gold{background:rgba(201,162,39,.1);border-color:rgba(201,162,39,.22);color:var(--au300)}
+.h-moderator{display:inline-flex;align-items:center;gap:9px;font-size:.78rem;font-weight:600;color:var(--cream);opacity:.8;margin-top:4px}
+.h-moderator-eye{font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--au400)}
+
+/* ═══════════════════════════════════════════════════════════════
+   PAGE BODY
+═══════════════════════════════════════════════════════════════ */
+.page-body{max-width:860px;margin:0 auto;padding:56px 18px 80px}
+.section-hd{display:flex;align-items:center;gap:12px;margin-bottom:22px}
+.section-hd h2{font-size:.65rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--c-text-dim)}
+.section-hd-line{flex:1;height:1px;background:var(--c-b2);transition:background-color .3s var(--ease)}
+
+/* ═══════════════════════════════════════════════════════════════
+   TIMELINE
+═══════════════════════════════════════════════════════════════ */
+.timeline{display:flex;flex-direction:column;gap:4px;margin-bottom:52px}
+.tl-item{border-radius:var(--r-md);overflow:hidden}
+
+.tl-btn{
+  width:100%;display:flex;align-items:center;text-align:left;
+  background:var(--c-s1);border:1px solid var(--c-b1);
+  border-radius:var(--r-md);
+  transition:background-color .3s var(--ease),border-color .3s var(--ease),
+             color .3s var(--ease),transform var(--dur) var(--ease-spring);
+  cursor:pointer;
+}
+.tl-btn:hover{background:var(--c-s1-hover);border-color:var(--c-b1-hover);transform:translateY(-1px)}
+.tl-btn:focus-visible{outline:2px solid var(--au500);outline-offset:2px}
+.tl-btn[aria-expanded="true"]{
+  border-radius:var(--r-md) var(--r-md) 0 0;
+  background:var(--c-s1-hover);border-color:rgba(201,162,39,.25);transform:none;
+}
+/* Prayer */
+.tl-btn--prayer{background:var(--c-prayer);border-color:var(--c-prayer-b)}
+.tl-btn--prayer:hover{background:var(--c-prayer-h)}
+/* Special */
+.tl-btn--special{background:rgba(201,162,39,.08);border-color:rgba(201,162,39,.22);border-left:3px solid var(--au500)}
+.tl-btn--special:hover{background:rgba(201,162,39,.13)}
+/* Speaker */
+.tl-btn--speaker{border-left:3px solid rgba(58,128,88,.4)}
+.tl-btn--speaker:hover{border-left-color:var(--g500)}
+.tl-btn[aria-expanded="true"].tl-btn--speaker{border-left-color:var(--au400)}
+
+.tl-time{
+  flex-shrink:0;width:72px;padding:14px 10px;
+  font-size:.66rem;font-weight:700;text-align:center;
+  color:var(--c-text-dim);letter-spacing:.04em;line-height:1.3;
+  border-right:1px solid var(--c-b2);
+  transition:color .3s var(--ease),border-color .3s var(--ease);
+}
+.tl-btn--speaker .tl-time{color:var(--g300)}
+.tl-btn--special .tl-time{color:var(--au400)}
+
+.tl-main{flex:1;padding:13px 16px;display:flex;flex-direction:column;gap:2px}
+.tl-label{font-size:.58rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.tl-label--speaker{color:var(--g300)}
+.tl-label--special{color:var(--au400)}
+.tl-label--other{color:var(--c-text-dim)}
+.tl-title{font-size:.9rem;font-weight:700;color:var(--c-text);line-height:1.35;transition:color .3s var(--ease)}
+.tl-title em{font-style:normal;color:var(--c-text-hi);transition:color .3s var(--ease)}
+.tl-spk{font-size:.74rem;color:var(--au300);font-weight:600;margin-top:1px}
+.tl-badge{
+  display:inline-flex;align-items:center;gap:4px;
+  font-size:.6rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  border-radius:20px;padding:2px 8px;margin-top:3px;width:fit-content;
+}
+.tl-badge--phy{background:rgba(58,128,88,.18);border:1px solid rgba(58,128,88,.3);color:var(--g300)}
+.tl-badge--vir{background:rgba(201,162,39,.12);border:1px solid rgba(201,162,39,.25);color:var(--au300)}
+.tl-chevron{
+  flex-shrink:0;width:38px;display:flex;align-items:center;justify-content:center;
+  color:var(--c-text-dim);
+  transition:transform var(--dur) var(--ease),color var(--dur) var(--ease);
+}
+.tl-chevron svg{width:15px;height:15px}
+.tl-btn[aria-expanded="true"] .tl-chevron{transform:rotate(180deg);color:var(--au400)}
+
+/* Accordion panel */
+.tl-panel{
+  display:grid;grid-template-rows:0fr;
+  transition:grid-template-rows .35s var(--ease);
+  background:var(--c-s2);
+  border:1px solid rgba(201,162,39,.18);border-top:none;
+  border-radius:0 0 var(--r-md) var(--r-md);
+  transition:grid-template-rows .35s var(--ease),background-color .3s var(--ease);
+}
+.tl-panel[aria-hidden="false"]{grid-template-rows:1fr}
+.tl-panel-inner{overflow:hidden}
+.tl-panel-body{padding:16px 18px 18px}
+.tl-panel-topic{font-size:.78rem;font-weight:700;color:var(--au300);margin-bottom:6px;letter-spacing:.01em}
+.tl-panel-desc{font-size:.82rem;color:var(--c-text);opacity:.78;line-height:1.65;transition:color .3s var(--ease)}
+
+/* Break separator */
+.tl-break{display:flex;align-items:center;gap:10px;padding:4px 2px}
+.tl-break-l{flex:1;height:1px;background:rgba(201,162,39,.12)}
+.tl-break-lbl{font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;flex-shrink:0;color:rgba(201,162,39,.55)}
+
+/* Registration / end row */
+.tl-reg{display:flex;align-items:center;gap:10px;padding:5px 2px}
+.tl-reg-t{font-size:.66rem;font-weight:700;flex-shrink:0;letter-spacing:.04em;color:var(--c-text-dim)}
+.tl-reg-l{flex:1;height:1px;background:var(--c-b2);transition:background-color .3s var(--ease)}
+.tl-reg-lbl{font-size:.67rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;flex-shrink:0;white-space:nowrap;color:var(--c-text-dim)}
+
+/* Games block */
+.tl-games{
+  position:relative;overflow:hidden;border-radius:var(--r-md);
+  background:var(--c-games);border:1px solid var(--c-games-b);
+  padding:16px 20px;display:flex;align-items:center;gap:16px;
+  transition:background-color .3s var(--ease),border-color .3s var(--ease);
+}
+.tl-games::before{content:'';position:absolute;inset:0;pointer-events:none;background:var(--c-games-glow)}
+.tl-games-icon{font-size:1.6rem;flex-shrink:0;position:relative;z-index:1}
+.tl-games-body{flex:1;position:relative;z-index:1}
+.tl-games-lbl{font-size:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--g300);margin-bottom:3px}
+.tl-games-title{font-size:.92rem;font-weight:700;color:var(--white)}
+.tl-games-sub{font-size:.74rem;color:var(--g300);opacity:.8;margin-top:2px}
+.tl-games-t{font-size:.64rem;font-weight:700;color:var(--c-text-dim);flex-shrink:0;letter-spacing:.04em;position:relative;z-index:1}
+
+/* Panel session block */
+.tl-panel-sess{
+  position:relative;overflow:hidden;border-radius:var(--r-md);
+  background:var(--c-ps);border:1px solid rgba(201,162,39,.28);border-left:3px solid var(--au500);
+  padding:16px 20px;
+  transition:background-color .3s var(--ease);
+}
+.tl-panel-sess::after{content:'';position:absolute;top:-50px;right:-50px;width:180px;height:180px;background:radial-gradient(circle,rgba(201,162,39,.12),transparent 65%);border-radius:50%;pointer-events:none}
+.tl-ps-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px;position:relative;z-index:1}
+.tl-ps-lbl{font-size:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--au400)}
+.tl-ps-time{font-size:.66rem;font-weight:700;color:var(--c-text-dim)}
+.tl-ps-title{font-size:.92rem;font-weight:700;color:var(--white);margin-bottom:14px;position:relative;z-index:1}
+.tl-ps-avatars{display:flex;gap:6px;flex-wrap:wrap;position:relative;z-index:1}
+.tl-ps-av{width:38px;height:38px;border-radius:50%;overflow:hidden;border:2px solid rgba(201,162,39,.4);flex-shrink:0;background:var(--g700)}
+.tl-ps-av img{width:100%;height:100%;object-fit:cover}
+.tl-ps-av-ini{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:.62rem;font-weight:800;color:var(--au300)}
+
+/* ═══════════════════════════════════════════════════════════════
+   SPEAKER SECTION
+═══════════════════════════════════════════════════════════════ */
+/* Moderator card */
+.mod-card{
+  display:flex;align-items:center;gap:16px;
+  background:rgba(201,162,39,.07);border:1px solid rgba(201,162,39,.2);
+  border-radius:var(--r-lg);padding:16px 20px;margin-bottom:16px;
+}
+.mod-av{
+  width:52px;height:52px;border-radius:50%;flex-shrink:0;
+  background:linear-gradient(135deg,var(--g700),var(--g500));
+  border:2px solid rgba(201,162,39,.35);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.85rem;font-weight:800;color:var(--au300);
+}
+.mod-body{flex:1}
+.mod-role{font-size:.58rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--au400);margin-bottom:3px}
+.mod-name{font-size:.95rem;font-weight:700;color:var(--c-text-hi);transition:color .3s var(--ease)}
+.mod-badge{display:inline-block;font-size:.6rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:rgba(201,162,39,.12);border:1px solid rgba(201,162,39,.22);border-radius:20px;padding:2px 9px;color:var(--au300);margin-top:4px}
+
+/* Speaker grid */
+.spk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:14px;margin-bottom:52px}
+@media(max-width:400px){.spk-grid{grid-template-columns:repeat(2,1fr)}}
+
+.spk-card{
+  display:flex;flex-direction:column;align-items:center;
+  background:var(--c-s1);border:1px solid var(--c-b1);
+  border-radius:var(--r-lg);padding:20px 14px 16px;
+  cursor:pointer;text-align:center;
+  transition:background-color .3s var(--ease),border-color .3s var(--ease),
+             color .3s var(--ease),transform var(--dur) var(--ease-spring),
+             box-shadow var(--dur) var(--ease);
+}
+.spk-card:hover{
+  background:var(--c-s1-hover);border-color:rgba(201,162,39,.28);
+  transform:translateY(-4px);box-shadow:0 8px 28px rgba(0,0,0,.12);
+}
+.spk-card:focus-visible{outline:2px solid var(--au500);outline-offset:3px}
+
+.spk-av-wrap{position:relative;margin-bottom:12px;flex-shrink:0}
+.spk-av{width:80px;height:80px;border-radius:50%;object-fit:cover;border:3px solid var(--c-b3);background:var(--g700);transition:border-color .3s var(--ease)}
+.spk-av-ini{width:80px;height:80px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;font-weight:800;color:var(--au300);border:3px solid rgba(201,162,39,.25)}
+.spk-cam{position:absolute;bottom:0;right:0;width:22px;height:22px;border-radius:50%;background:var(--au500);color:var(--g900);display:flex;align-items:center;justify-content:center;font-size:.7rem;border:2px solid var(--c-bg);transition:border-color .3s var(--ease)}
+.spk-name{font-size:.82rem;font-weight:700;color:var(--c-text-hi);line-height:1.3;margin-bottom:5px;transition:color .3s var(--ease)}
+.spk-badge{display:inline-flex;align-items:center;gap:4px;font-size:.58rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:20px;padding:2px 9px;margin-bottom:8px}
+.spk-badge--phy{background:rgba(58,128,88,.18);border:1px solid rgba(58,128,88,.3);color:var(--g300)}
+.spk-badge--vir{background:rgba(201,162,39,.12);border:1px solid rgba(201,162,39,.25);color:var(--au300)}
+.spk-topic{font-size:.72rem;color:var(--c-text-dim);line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;transition:color .3s var(--ease)}
+
+/* ═══════════════════════════════════════════════════════════════
+   MODAL
+═══════════════════════════════════════════════════════════════ */
+.mo-overlay{
+  position:fixed;inset:0;z-index:1000;
+  background:var(--c-overlay);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  display:flex;align-items:flex-end;justify-content:center;
+  padding:0;opacity:0;pointer-events:none;
+  transition:opacity .25s var(--ease),background-color .3s var(--ease);
+}
+@media(min-width:640px){.mo-overlay{align-items:center;padding:24px}}
+.mo-overlay.open{opacity:1;pointer-events:all}
+
+.mo-sheet{
+  width:100%;max-width:600px;max-height:90svh;overflow-y:auto;
+  background:var(--c-modal);border:1px solid var(--c-b1);
+  border-radius:var(--r-xl) var(--r-xl) 0 0;
+  transform:translateY(40px);
+  transition:transform .38s var(--ease-spring),
+             background-color .3s var(--ease),border-color .3s var(--ease);
+  overscroll-behavior:contain;
+}
+@media(min-width:640px){.mo-sheet{border-radius:var(--r-xl)}}
+.mo-overlay.open .mo-sheet{transform:translateY(0)}
+.mo-inner{padding:26px 24px 32px}
+.mo-top{display:flex;align-items:flex-start;gap:16px;margin-bottom:20px}
+.mo-av-wrap{position:relative;flex-shrink:0}
+.mo-av{width:72px;height:72px;border-radius:50%;object-fit:cover;border:3px solid rgba(201,162,39,.3);background:var(--g700)}
+.mo-av-ini{width:72px;height:72px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.15rem;font-weight:800;color:var(--au300);border:3px solid rgba(201,162,39,.3)}
+.mo-cam{position:absolute;bottom:0;right:0;width:22px;height:22px;border-radius:50%;background:var(--au500);color:var(--g900);display:flex;align-items:center;justify-content:center;font-size:.7rem;border:2px solid var(--c-modal);transition:border-color .3s var(--ease)}
+.mo-meta{flex:1;padding-top:4px}
+.mo-badge{display:inline-flex;align-items:center;gap:4px;font-size:.6rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;border-radius:20px;padding:2px 9px;margin-bottom:6px}
+.mo-badge--phy{background:rgba(58,128,88,.2);border:1px solid rgba(58,128,88,.32);color:var(--g300)}
+.mo-badge--vir{background:rgba(201,162,39,.15);border:1px solid rgba(201,162,39,.3);color:var(--au300)}
+.mo-name{font-size:1.05rem;font-weight:800;color:var(--c-text-hi);line-height:1.25;transition:color .3s var(--ease)}
+.mo-close{
+  flex-shrink:0;width:34px;height:34px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--c-s1);border:1px solid var(--c-b1);color:var(--c-text-dim);
+  transition:background-color .3s var(--ease),color .3s var(--ease),border-color .3s var(--ease);
+}
+.mo-close:hover{background:var(--c-s1-hover);color:var(--c-text)}
+.mo-close:focus-visible{outline:2px solid var(--au500);outline-offset:2px}
+.mo-close svg{width:16px;height:16px}
+.mo-topic{font-size:.82rem;font-weight:700;color:var(--au400);background:rgba(201,162,39,.08);border:1px solid rgba(201,162,39,.18);border-radius:var(--r-md);padding:10px 14px;margin-bottom:16px;line-height:1.45}
+.mo-section-lbl{font-size:.58rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--c-text-dim);margin-bottom:6px;transition:color .3s var(--ease)}
+.mo-text{font-size:.84rem;color:var(--c-text);opacity:.84;line-height:1.75;margin-bottom:18px;transition:color .3s var(--ease)}
+.mo-text:last-child{margin-bottom:0}
+.mo-divider{height:1px;background:var(--c-b2);margin:18px 0;transition:background-color .3s var(--ease)}
+.mo-handle{width:36px;height:4px;background:var(--c-handle);border-radius:2px;margin:12px auto 0;transition:background-color .3s var(--ease)}
+
+/* ═══════════════════════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════════════════════ */
+@media(max-width:480px){
+  .h-frame{inset:10px}
+  .h-bsm{font-size:1.1rem;top:56px}
+  .tl-time{width:58px;font-size:.62rem}
+  .spk-grid{grid-template-columns:repeat(2,1fr)}
+  .mod-card{flex-direction:column;text-align:center}
+  .mo-inner{padding:20px 16px 28px}
+}
+</style>
+</head>
+<body>
+
+<!-- back nav -->
+<nav class="back-nav" aria-label="Site navigation">
+  <a class="back-link" href="index.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+    Back to Full Programme
+  </a>
+</nav>
+
+<!-- theme toggle -->
+<button class="theme-toggle" id="theme-toggle" aria-label="Switch to light mode">
+  <!-- sun: visible in dark mode, click to go light -->
+  <svg class="t-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+    <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/>
+    <line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/>
+    <line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+  </svg>
+  <!-- moon: visible in light mode, click to go dark -->
+  <svg class="t-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+  </svg>
+</button>
+
+<!-- ════════════════════════════════════════════════════════════
+  HERO (always dark — cinematic brand anchor)
+════════════════════════════════════════════════════════════ -->
+<header class="hero" role="banner">
+  <div class="h-bg" aria-hidden="true"></div>
+  <div class="h-glow" aria-hidden="true">
+    <div class="h-ga"></div><div class="h-gb"></div><div class="h-gc"></div>
+  </div>
+  <div class="h-tile" aria-hidden="true"></div>
+  <div class="h-frame" aria-hidden="true">
+    <div class="h-fc-tr"></div><div class="h-fc-bl"></div>
+  </div>
+  <p class="h-bsm" aria-hidden="true">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+
+  <div class="h-con">
+    <p class="h-eyebrow fu">TIM 3rd Ijtimah 1447 AH · Symposium Group 2</p>
+    <p class="h-pre fu" style="transition-delay:.06s">Decoding the Future</p>
+    <h1 class="h-title fu" style="transition-delay:.1s">
+      Tech Trends &amp; the<br><em>21st Century Khilafah</em>
+    </h1>
+    <p class="h-topic fu" style="transition-delay:.15s">
+      Beyond Personal Success: Raising Purposeful Professionals &amp; Building a Model Ummah
+    </p>
+    <div class="h-rule fu" style="transition-delay:.19s" aria-hidden="true"></div>
+    <p class="h-synopsis fu" style="transition-delay:.22s">
+      We are moving from the Internet of Things to the Internet of Values. This session explores how AI, Blockchain, and Quantum Computing are not just tools for profit — but instruments for Dawah and Justice.
+    </p>
+    <div class="h-meta fu" style="transition-delay:.26s">
+      <span class="h-chip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Saturday, 16 May 2026 · 29th Dhul Qidah 1447 AH
+      </span>
+      <span class="h-chip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        10:00 AM – 12:45 PM
+      </span>
+      <span class="h-chip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Classroom · Ansarul Islam National Mosque, Utako, Abuja
+      </span>
+      <span class="h-chip h-chip--gold">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+        Hybrid — Interactive Virtual Stream &amp; Live Workshop
+      </span>
+    </div>
+    <div class="h-moderator fu" style="transition-delay:.3s">
+      <span class="h-moderator-eye">Moderator</span>
+      <span>Mall. Adam Yusuf</span>
+    </div>
+  </div>
+</header>
+
+<!-- ════════════════════════════════════════════════════════════
+  PAGE BODY
+════════════════════════════════════════════════════════════ -->
+<main class="page-body">
+
+  <div class="section-hd fu">
+    <h2>Programme Flow</h2>
+    <span class="section-hd-line" aria-hidden="true"></span>
+  </div>
+
+  <div class="timeline" id="timeline" role="list">
+
+    <div class="tl-reg fu" role="listitem">
+      <span class="tl-reg-t">10:00</span>
+      <span class="tl-reg-l" aria-hidden="true"></span>
+      <span class="tl-reg-lbl">Registration &amp; Arrival</span>
+    </div>
+
+    <!-- Opening -->
+    <div class="tl-item fu" role="listitem">
+      <button class="tl-btn tl-btn--special" aria-expanded="false" data-tl="opening">
+        <div class="tl-time" aria-hidden="true">10:15</div>
+        <div class="tl-main">
+          <span class="tl-label tl-label--special">Opening</span>
+          <span class="tl-title">Quranic Recitation &amp; Opening Remarks</span>
+        </div>
+        <div class="tl-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div>
+      </button>
+      <div class="tl-panel" aria-hidden="true" id="tl-opening">
+        <div class="tl-panel-inner"><div class="tl-panel-body">
+          <p class="tl-panel-desc">Recitation from the Holy Quran followed by opening remarks setting the context and intentions for the Symposium session.</p>
+        </div></div>
+      </div>
+    </div>
+
+    <!-- Speaker 1 -->
+    <div class="tl-item fu" role="listitem">
+      <button class="tl-btn tl-btn--speaker" aria-expanded="false" data-tl="spk1">
+        <div class="tl-time" aria-hidden="true">10:30</div>
+        <div class="tl-main">
+          <span class="tl-label tl-label--speaker">Speaker 1</span>
+          <span class="tl-title"><em>Fauziya Mohammed (Ziya)</em></span>
+          <span class="tl-badge tl-badge--phy">Physical</span>
+        </div>
+        <div class="tl-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div>
+      </button>
+      <div class="tl-panel" aria-hidden="true" id="tl-spk1">
+        <div class="tl-panel-inner"><div class="tl-panel-body">
+          <p class="tl-panel-topic">Building Wealth in the New Age of Technology</p>
+          <p class="tl-panel-desc">How the modern Muslim professional can intentionally position themselves to build lasting wealth — not just for personal gain, but as a tool for community impact and Ummah development.</p>
+        </div></div>
+      </div>
+    </div>
+
+    <div class="tl-break fu" role="listitem" aria-label="5-minute break">
+      <span class="tl-break-l" aria-hidden="true"></span>
+      <span class="tl-break-lbl">· · · 5-min Break · · ·</span>
+      <span class="tl-break-l" aria-hidden="true"></span>
+    </div>
+
+    <!-- Speaker 2 -->
+    <div class="tl-item fu" role="listitem">
+      <button class="tl-btn tl-btn--speaker" aria-expanded="false" data-tl="spk2">
+        <div class="tl-time" aria-hidden="true">10:55</div>
+        <div class="tl-main">
+          <span class="tl-label tl-label--speaker">Speaker 2</span>
+          <span class="tl-title"><em>Abdulsamii Ajala</em></span>
+          <span class="tl-badge tl-badge--vir">🎥 Virtual</span>
+        </div>
+        <div class="tl-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div>
+      </button>
+      <div class="tl-panel" aria-hidden="true" id="tl-spk2">
+        <div class="tl-panel-inner"><div class="tl-panel-body">
+          <p class="tl-panel-topic">[Topic to be updated]</p>
+          <p class="tl-panel-desc">Abdulsamii brings expertise in scalable software systems, AI integration, and digital product architecture — exploring practical digital solutions for emerging markets.</p>
+        </div></div>
+      </div>
+    </div>
+
+    <div class="tl-break fu" role="listitem" aria-label="5-minute break">
+      <span class="tl-break-l" aria-hidden="true"></span>
+      <span class="tl-break-lbl">· · · 5-min Break · · ·</span>
+      <span class="tl-break-l" aria-hidden="true"></span>
+    </div>
+
+    <!-- Speaker 3 -->
+    <div class="tl-item fu" role="listitem">
+      <button class="tl-btn tl-btn--speaker" aria-expanded="false" data-tl="spk3">
+        <div class="tl-time" aria-hidden="true">11:20</div>
+        <div class="tl-main">
+          <span class="tl-label tl-label--speaker">Speaker 3</span>
+          <span class="tl-title"><em>Abdulqahar Aminu Jatto</em></span>
+          <span class="tl-badge tl-badge--vir">🎥 Virtual</span>
+        </div>
+        <div class="tl-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div>
+      </button>
+      <div class="tl-panel" aria-hidden="true" id="tl-spk3">
+        <div class="tl-panel-inner"><div class="tl-panel-body">
+          <p class="tl-panel-topic">From Internet of Things to Internet of Values — The Architecture of a Value-Driven Digital Future</p>
+          <p class="tl-panel-desc">What kind of digital architecture should the Muslim Ummah build for itself, and on whose values? The talk diagnoses the digital battlefield facing the Ummah — across cognitive, economic, and physical fronts — and offers a builder's roadmap for an Internet of Values whose defaults, incentives, and accountability structures encode the commitments of our dīn, and lay the technological foundations of the 21st century khilāfah.</p>
+        </div></div>
+      </div>
+    </div>
+
+    <div class="tl-break fu" role="listitem" aria-label="5-minute break">
+      <span class="tl-break-l" aria-hidden="true"></span>
+      <span class="tl-break-lbl">· · · 5-min Break · · ·</span>
+      <span class="tl-break-l" aria-hidden="true"></span>
+    </div>
+
+    <!-- Speaker 4 -->
+    <div class="tl-item fu" role="listitem">
+      <button class="tl-btn tl-btn--speaker" aria-expanded="false" data-tl="spk4">
+        <div class="tl-time" aria-hidden="true">11:45</div>
+        <div class="tl-main">
+          <span class="tl-label tl-label--speaker">Speaker 4</span>
+          <span class="tl-title"><em>Abdulhayyi Yusuf</em></span>
+          <span class="tl-badge tl-badge--phy">Physical</span>
+        </div>
+        <div class="tl-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div>
+      </button>
+      <div class="tl-panel" aria-hidden="true" id="tl-spk4">
+        <div class="tl-panel-inner"><div class="tl-panel-body">
+          <p class="tl-panel-topic">Blockchain &amp; the Internet of Values — Decentralizing Trust for Justice and Transparency</p>
+          <p class="tl-panel-desc">Blockchain as a trust infrastructure for justice and economic empowerment — from auditable zakat distribution to tokenized waqf management and halal microfinance.</p>
+        </div></div>
+      </div>
+    </div>
+
+    <div class="tl-break fu" role="listitem" aria-label="5-minute break">
+      <span class="tl-break-l" aria-hidden="true"></span>
+      <span class="tl-break-lbl">· · · 5-min Break · · ·</span>
+      <span class="tl-break-l" aria-hidden="true"></span>
+    </div>
+
+    <!-- Speaker 5 -->
+    <div class="tl-item fu" role="listitem">
+      <button class="tl-btn tl-btn--speaker" aria-expanded="false" data-tl="spk5">
+        <div class="tl-time" aria-hidden="true">12:10</div>
+        <div class="tl-main">
+          <span class="tl-label tl-label--speaker">Speaker 5</span>
+          <span class="tl-title"><em>S. A Yusuf</em></span>
+          <span class="tl-badge tl-badge--phy">Physical</span>
+        </div>
+        <div class="tl-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div>
+      </button>
+      <div class="tl-panel" aria-hidden="true" id="tl-spk5">
+        <div class="tl-panel-inner"><div class="tl-panel-body">
+          <p class="tl-panel-topic">Finding Your Unique Voice: Beyond Personal Success</p>
+          <p class="tl-panel-desc">Shifting focus from self-expression for validation to purposeful expression for impact — discovering that your voice is not just for personal success, but for serving something greater than yourself.</p>
+        </div></div>
+      </div>
+    </div>
+
+    <!-- Games -->
+    <div class="tl-games fu" role="listitem" aria-label="12:20 — Games and Activity Time">
+      <span class="tl-games-t">12:20</span>
+      <span class="tl-games-icon" aria-hidden="true">🎯</span>
+      <div class="tl-games-body">
+        <p class="tl-games-lbl">Interactive</p>
+        <p class="tl-games-title">Games &amp; Activity Time</p>
+        <p class="tl-games-sub">Energiser activities, group challenges &amp; reflection exercises</p>
+      </div>
+    </div>
+
+    <!-- Panel Session -->
+    <div class="tl-panel-sess fu" role="listitem" aria-label="12:35 — Panel Session">
+      <div class="tl-ps-top">
+        <span class="tl-ps-lbl">Panel Session</span>
+        <span class="tl-ps-time">12:35</span>
+      </div>
+      <p class="tl-ps-title">All Speakers + Moderator — Open Q&amp;A &amp; Discussion</p>
+      <div class="tl-ps-avatars" aria-label="Panel participants" role="list"></div>
+    </div>
+
+    <!-- Closing -->
+    <div class="tl-item fu" role="listitem">
+      <button class="tl-btn tl-btn--special" aria-expanded="false" data-tl="closing">
+        <div class="tl-time" aria-hidden="true">12:40</div>
+        <div class="tl-main">
+          <span class="tl-label tl-label--special">Closing</span>
+          <span class="tl-title">Closing Remarks &amp; Du'a</span>
+        </div>
+        <div class="tl-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div>
+      </button>
+      <div class="tl-panel" aria-hidden="true" id="tl-closing">
+        <div class="tl-panel-inner"><div class="tl-panel-body">
+          <p class="tl-panel-desc">Moderator's closing remarks, key takeaways, and collective du'a. Session ends at 12:45 PM.</p>
+        </div></div>
+      </div>
+    </div>
+
+    <div class="tl-reg fu" role="listitem">
+      <span class="tl-reg-t">12:45</span>
+      <span class="tl-reg-l" aria-hidden="true"></span>
+      <span class="tl-reg-lbl">Session End</span>
+    </div>
+
+  </div><!-- /timeline -->
+
+  <!-- ── SPEAKERS ─────────────────────────────────────────── -->
+  <div class="section-hd fu">
+    <h2>Speakers</h2>
+    <span class="section-hd-line" aria-hidden="true"></span>
+  </div>
+
+  <div class="mod-card fu" role="region" aria-label="Moderator">
+    <div class="mod-av" aria-hidden="true">AY</div>
+    <div class="mod-body">
+      <p class="mod-role">Session Moderator</p>
+      <p class="mod-name">Mall. Adam Yusuf</p>
+      <span class="mod-badge">Physical</span>
+    </div>
+  </div>
+
+  <div class="spk-grid" id="spk-grid" role="list" aria-label="Speakers"></div>
+
+</main>
+
+<!-- ════════════════════════════════════════════════════════════
+  MODAL
+════════════════════════════════════════════════════════════ -->
+<div class="mo-overlay" id="modal" role="dialog" aria-modal="true" aria-labelledby="mo-name" aria-hidden="true">
+  <div class="mo-sheet" id="mo-sheet">
+    <div class="mo-handle" aria-hidden="true"></div>
+    <div class="mo-inner">
+      <div class="mo-top">
+        <div class="mo-av-wrap">
+          <div id="mo-av-ini" class="mo-av-ini" aria-hidden="true"></div>
+          <img id="mo-av-img" class="mo-av" src="" alt="" style="display:none">
+          <div id="mo-cam" class="mo-cam" style="display:none" aria-hidden="true">🎥</div>
+        </div>
+        <div class="mo-meta">
+          <span id="mo-badge" class="mo-badge"></span>
+          <h2 id="mo-name" class="mo-name"></h2>
+        </div>
+        <button class="mo-close" id="mo-close" aria-label="Close speaker details">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+      <div id="mo-topic" class="mo-topic"></div>
+      <p class="mo-section-lbl">About this talk</p>
+      <p id="mo-desc" class="mo-text"></p>
+      <div class="mo-divider" aria-hidden="true"></div>
+      <p class="mo-section-lbl">Bio</p>
+      <p id="mo-bio" class="mo-text"></p>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ── Speaker data ──────────────────────────────────────── */
+  var SPK = [
+    {
+      name:'Fauziya Mohammed (Ziya)',initials:'FZ',mode:'Physical',img:'1.jpg',
+      avi:'linear-gradient(135deg,var(--g700),var(--g500))',
+      topic:'Building Wealth in the New Age of Technology',
+      desc:'In a world where technology is rapidly reshaping economies and industries, this talk explores how the modern Muslim professional can intentionally position themselves to build lasting wealth — not just for personal gain, but as a tool for community impact and Ummah development. Drawing from her experience designing for social change, Ziya unpacks the intersection of design thinking, digital skills, and financial empowerment for the next generation of African tech professionals.',
+      bio:'Fauziya Mohammed (Ziya) serves as an Experience Design Manager at Ashoka Changemakers, where she leads design initiatives that foster social innovation and empower changemakers worldwide. With more than eight years of experience designing for social change, she has distinguished herself as an exceptional designer, crafting impactful user experiences that respond to complex global challenges. Her work consistently bridges the gap between design and social impact, and she has collaborated with prominent organisations such as Outsource Global, WriteTech Hub, and She Code Africa — where she served as Lead Designer, championing and empowering women in tech across Africa. Beyond her professional roles, Ziya is a dedicated mentor to emerging designers and an active contributor to community-driven initiatives, including Women Techmakers Lokoja (Ambassador), Accessibility Nigeria (Design Lead), GDG Lokoja (Design Lead), and 3MTT (Design Mentor).'
+    },
+    {
+      name:'Abdulsamii Ajala',initials:'AA',mode:'Virtual',img:'2.jpg',
+      avi:'linear-gradient(135deg,var(--au700),var(--au500))',
+      topic:'[Topic to be updated before launch]',
+      desc:'[Talk description to be updated before launch.]',
+      bio:'Abdulsamii Ajala is a Senior Fullstack Engineer and technology consultant with expertise in scalable software systems, AI integration, and digital product architecture. With experience spanning engineering, technical assessment, and product innovation, he has worked with international teams and contributed to developer talent evaluation at Andela. His interests include AI-first systems, automation, fintech, agritech, and building practical digital solutions for emerging markets.'
+    },
+    {
+      name:'Abdulqahar Aminu Jatto',initials:'AJ',mode:'Virtual',img:'3.jpg',
+      avi:'linear-gradient(135deg,var(--au700),var(--g600))',
+      topic:'From Internet of Things to Internet of Values — The Architecture of a Value-Driven Digital Future',
+      desc:'What kind of digital architecture should the Muslim Ummah build for itself, and on whose values? This presentation argues that technology, in our age, is both amānah — a trust from Allah we will be held accountable for — and i\'dād, the preparation He has commanded. The talk diagnoses the digital battlefield facing the Ummah today — across cognitive, economic, and physical fronts — and offers a builder\'s roadmap for an Internet of Values: a digital architecture whose defaults, incentives, and accountability structures encode the commitments of our dīn, and lay the technological foundations of the 21st century khilāfah.',
+      bio:'Jatto Abdul (Abdulqahhar Aminujatto) serves as a Senior Software Engineer at Minerva, building backend and applied-AI infrastructure for the AML and financial-regulations space, and leads development of Infergo — an open-source inference engine — at Pergamon Labs. With more than a decade of experience working where product ideas become real software, he thinks in systems: boundaries, contracts, observability, and the people who operate the thing after it ships. His work spans data-model modernisation, search and screening systems, reporting automation, and exploratory infrastructure for entity resolution and model serving. He also runs JITS (Jatto IT Solutions Inc.), shipping products including TrustKarry and Pinnr. A long-time mentor in the African tech ecosystem — contributing to freeCodeCamp, Django Girls, and TeenCode at Andela — he writes and speaks on practical engineering, AI-assisted workflows, and building digital infrastructure for the Muslim Ummah. Originally from Nigeria, now based in Waterloo, Canada.'
+    },
+    {
+      name:'Abdulhayyi Yusuf',initials:'AY',mode:'Physical',img:'4.jpg',
+      avi:'linear-gradient(135deg,var(--g700),var(--g500))',
+      topic:'Blockchain & the Internet of Values — Decentralizing Trust for Justice and Transparency',
+      desc:'This presentation examines blockchain not as a vehicle for speculation, but as a trust infrastructure for justice and economic empowerment. Drawing on Islamic principles — from the Quranic emphasis on transparent contracts to the prohibition of gharar and riba — it explores how smart contracts and decentralised systems can serve the Ummah through auditable zakat distribution, tokenized waqf management, halal microfinance, and financial inclusion for unbanked Muslim communities across Africa and beyond.',
+      bio:'Abdul-hayyi Yusuf is a blockchain developer, builder, and community steward passionate about leveraging emerging technologies to solve real-world problems across Africa. He holds a background in Mechatronics Engineering and serves as Steward of the Logos Abuja Circle — a chapter of Logos, a privacy-default blockchain network building infrastructure for decentralised communities and digital sovereignty. His work spans blockchain infrastructure, real-world asset tokenization, agritech innovation, and community-driven digital products. He is co-founding Prova, an onchain trade credit insurance platform for African markets, with projects including NestBlock (blockchain-powered real estate tokenization) and AgriYield (technology-enabled agricultural solutions for economic inclusion).'
+    },
+    {
+      name:'S. A Yusuf',initials:'SY',mode:'Physical',img:'5.jpg',
+      avi:'linear-gradient(135deg,var(--g700),var(--g500))',
+      topic:'Finding Your Unique Voice: Beyond Personal Success',
+      desc:'In a world driven by comparison, noise, and constant pressure to fit in, many young people struggle not with confidence but with clarity. This talk challenges the status quo by shifting focus from self-expression for validation to purposeful expression for impact. It explores how each individual has been intentionally created with a unique combination of values, experiences, and abilities — and that this uniqueness is not accidental, but a responsibility. Grounded in reflection and spiritual perspective, the session guides participants to understand that their voice is more than what they say — it is how they contribute to the world around them. Through interactive questions, relatable insights, and a simple actionable framework, attendees will leave with a new perspective: their voice is not just for personal success, but for serving something greater than themselves.',
+      bio:'Yusuf is a Senior Technical Product Manager, part-time developer, and technology systems reviewer with a strong passion for building practical, secure, and human-centred digital solutions. He leads the product team at Visionary Insights and has been involved in founding and supporting several initiatives focused on technology, community growth, and purposeful impact. With experience across GovTech, identity infrastructure, e-commerce, accessibility, and digital product development, he brings a unique mix of product thinking, technical depth, and real-world execution — having worked on technology solutions that support government systems, businesses, and communities. He has a keen interest in system security and is currently exploring financial systems, security architecture, and the future of trusted digital infrastructure. For this session, he brings a relatable and practical perspective on how Muslim youth can understand emerging technology trends, prepare for the future, and contribute meaningfully to building a purposeful Ummah.'
+    }
+  ];
+
+  /* ── Build speaker cards ───────────────────────────────── */
+  var grid = document.getElementById('spk-grid');
+  SPK.forEach(function (s, i) {
+    var vir = s.mode === 'Virtual';
+    var card = document.createElement('button');
+    card.className = 'spk-card fu';
+    card.setAttribute('aria-label', 'View details for ' + s.name);
+    card.dataset.spk = i;
+
+    var avHTML = s.img
+      ? '<img class="spk-av" src="' + s.img + '" alt="' + s.name + '" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'">'
+        + '<div class="spk-av-ini" style="background:' + s.avi + ';display:none" aria-hidden="true">' + s.initials + '</div>'
+      : '<div class="spk-av-ini" style="background:' + s.avi + '" aria-hidden="true">' + s.initials + '</div>';
+
+    card.innerHTML =
+      '<div class="spk-av-wrap">' + avHTML
+      + (vir ? '<span class="spk-cam" aria-hidden="true">🎥</span>' : '')
+      + '</div>'
+      + '<p class="spk-name">' + s.name + '</p>'
+      + '<span class="spk-badge ' + (vir ? 'spk-badge--vir' : 'spk-badge--phy') + '">' + (vir ? '🎥 Virtual' : 'Physical') + '</span>'
+      + '<p class="spk-topic">' + s.topic + '</p>';
+
+    card.addEventListener('click', function () { openModal(i); });
+    grid.appendChild(card);
+  });
+
+  /* ── Build panel avatars ───────────────────────────────── */
+  var panelAv = document.querySelector('.tl-ps-avatars');
+  SPK.forEach(function (s) {
+    var w = document.createElement('div');
+    w.className = 'tl-ps-av';w.setAttribute('role','listitem');w.setAttribute('aria-label',s.name);
+    w.innerHTML = s.img
+      ? '<img src="' + s.img + '" alt="' + s.name + '" onerror="this.style.display=\'none\';this.parentElement.querySelector(\'.tl-ps-av-ini\').style.display=\'flex\'">'
+        + '<div class="tl-ps-av-ini" style="background:' + s.avi + ';display:none" aria-hidden="true">' + s.initials + '</div>'
+      : '<div class="tl-ps-av-ini" style="background:' + s.avi + '" aria-hidden="true">' + s.initials + '</div>';
+    panelAv.appendChild(w);
+  });
+  var modW = document.createElement('div');
+  modW.className='tl-ps-av';modW.setAttribute('role','listitem');modW.setAttribute('aria-label','Mall. Adam Yusuf (Moderator)');
+  modW.innerHTML='<div class="tl-ps-av-ini" style="background:linear-gradient(135deg,var(--au700),var(--au500))" aria-hidden="true">AY</div>';
+  panelAv.appendChild(modW);
+
+  /* ── Modal ─────────────────────────────────────────────── */
+  var overlay=document.getElementById('modal'),lastFocus;
+  var moName=document.getElementById('mo-name'),moBadge=document.getElementById('mo-badge');
+  var moAvIni=document.getElementById('mo-av-ini'),moAvImg=document.getElementById('mo-av-img');
+  var moCam=document.getElementById('mo-cam'),moTopic=document.getElementById('mo-topic');
+  var moDesc=document.getElementById('mo-desc'),moBio=document.getElementById('mo-bio');
+  var moClose=document.getElementById('mo-close');
+
+  function openModal(idx) {
+    var s=SPK[idx]; lastFocus=document.activeElement;
+    var vir=s.mode==='Virtual';
+    moName.textContent=s.name;
+    moBadge.textContent=vir?'🎥 Virtual':'Physical';
+    moBadge.className='mo-badge '+(vir?'mo-badge--vir':'mo-badge--phy');
+    if(s.img){
+      moAvImg.src=s.img;moAvImg.alt=s.name;moAvImg.style.display='block';moAvIni.style.display='none';
+      moAvImg.onerror=function(){moAvImg.style.display='none';moAvIni.style.display='flex';moAvIni.style.background=s.avi;moAvIni.textContent=s.initials};
+    }else{
+      moAvImg.style.display='none';moAvIni.style.display='flex';moAvIni.style.background=s.avi;moAvIni.textContent=s.initials;
+    }
+    moCam.style.display=vir?'flex':'none';
+    moTopic.textContent=s.topic;moDesc.textContent=s.desc;moBio.textContent=s.bio;
+    overlay.classList.add('open');overlay.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';
+    requestAnimationFrame(function(){moClose.focus()});
+  }
+  function closeModal(){
+    overlay.classList.remove('open');overlay.setAttribute('aria-hidden','true');
+    document.body.style.overflow='';if(lastFocus)lastFocus.focus();
+  }
+  moClose.addEventListener('click',closeModal);
+  overlay.addEventListener('click',function(e){if(e.target===overlay)closeModal()});
+  document.addEventListener('keydown',function(e){
+    if(!overlay.classList.contains('open'))return;
+    if(e.key==='Escape'){closeModal();return}
+    if(e.key==='Tab'){
+      var f=Array.from(overlay.querySelectorAll('button,a,[tabindex]:not([tabindex="-1"])')).filter(function(el){return!el.disabled});
+      if(e.shiftKey&&document.activeElement===f[0]){e.preventDefault();f[f.length-1].focus()}
+      else if(!e.shiftKey&&document.activeElement===f[f.length-1]){e.preventDefault();f[0].focus()}
+    }
+  });
+
+  /* ── Timeline accordion ────────────────────────────────── */
+  document.querySelectorAll('.tl-btn').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var id='tl-'+btn.dataset.tl,panel=document.getElementById(id);
+      var open=btn.getAttribute('aria-expanded')==='true';
+      document.querySelectorAll('.tl-btn[aria-expanded="true"]').forEach(function(b){
+        if(b!==btn){
+          b.setAttribute('aria-expanded','false');
+          var p=document.getElementById('tl-'+b.dataset.tl);
+          if(p){p.setAttribute('aria-hidden','true');p.style.gridTemplateRows='0fr'}
+        }
+      });
+      btn.setAttribute('aria-expanded',!open);
+      panel.setAttribute('aria-hidden',open);
+      panel.style.gridTemplateRows=open?'0fr':'1fr';
+    });
+  });
+
+  /* ── IntersectionObserver fade-up ──────────────────────── */
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(!e.isIntersecting)return;
+      var el=e.target;
+      var sib=Array.from(el.parentElement.querySelectorAll(':scope > .fu'));
+      el.style.transitionDelay=Math.min(sib.indexOf(el)*55,260)+'ms';
+      el.classList.add('vis');io.unobserve(el);
+      el.addEventListener('transitionend',function(){el.style.willChange='auto';el.style.transitionDelay='';},{once:true});
+    });
+  },{threshold:0.06,rootMargin:'0px 0px -28px 0px'});
+  document.querySelectorAll('.fu').forEach(function(el){el.style.willChange='transform,opacity';io.observe(el)});
+
+  /* ── Freeze glow on touch ──────────────────────────────── */
+  if(window.matchMedia('(pointer:coarse)').matches)
+    document.querySelectorAll('.h-ga,.h-gb,.h-gc').forEach(function(el){el.style.animationPlayState='paused'});
+
+  /* ── Theme toggle ──────────────────────────────────────── */
+  (function(){
+    var root=document.documentElement;
+    var btn=document.getElementById('theme-toggle');
+
+    function getTheme(){return root.getAttribute('data-theme')==='light'?'light':'dark'}
+
+    function applyLabel(t){
+      btn.setAttribute('aria-label',t==='light'?'Switch to dark mode':'Switch to light mode');
+    }
+
+    /* Set initial aria-label (theme already applied by head script) */
+    applyLabel(getTheme());
+
+    btn.addEventListener('click',function(){
+      var next=getTheme()==='light'?'dark':'light';
+      if(next==='light'){root.setAttribute('data-theme','light')}
+      else{root.removeAttribute('data-theme')}
+      localStorage.setItem('sym-theme',next);
+      applyLabel(next);
+    });
+  })();
+
+}());
+</script>
+</body>
+</html>
